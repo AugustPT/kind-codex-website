@@ -17,7 +17,6 @@ export default function Home() {
   
   const pathRef = useRef<HTMLDivElement>(null);
   const resultRef = useRef<HTMLDivElement>(null);
-  const formRef = useRef<HTMLDivElement>(null);
 
   const handleStartPath = () => {
     pathRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -31,10 +30,6 @@ export default function Home() {
     setTimeout(() => {
       resultRef.current?.scrollIntoView({ behavior: "smooth" });
     }, 100);
-  };
-
-  const handleScrollToForm = () => {
-    formRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleBookCallExternal = () => {
@@ -51,24 +46,27 @@ export default function Home() {
         <ClarityPath onComplete={handleCompletePath} />
       </div>
 
-      {/* 3 & 4. Personalized Result and Lead Capture (Dynamic Reveal) */}
+      {/* 3 & 4. Merged Opportunity and Lead Capture Funnel (Dynamic Reveal) */}
       <AnimatePresence mode="wait">
         {diagnosticResult && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
+            transition={{ duration: 0.8, ease: "easeInOut" as const }}
             className="w-full bg-[#faf9f5]"
           >
-            {/* 3. Personalized Result Screen */}
-            <div ref={resultRef} className="py-16 md:py-24 border-b border-stone-200">
-              <ResultScreen result={diagnosticResult} onCtaClick={handleScrollToForm} />
-            </div>
+            <div ref={resultRef} className="py-16 md:py-24 px-4 border-b border-stone-200">
+              <div className="w-full max-w-2xl mx-auto border border-stone-200 bg-white rounded-2xl shadow-[0_4px_24px_rgba(28,25,23,0.03)] relative overflow-hidden">
+                {/* Decorative terracotta border top line */}
+                <div className="absolute inset-x-0 top-0 h-[3px] bg-[#c2410c]" />
 
-            {/* 4. Lead Capture Form */}
-            <div ref={formRef} className="border-b border-stone-200">
-              <LeadCaptureForm result={diagnosticResult} answers={answers} />
+                {/* Opportunity result details */}
+                <ResultScreen result={diagnosticResult} />
+
+                {/* Lead Form and Calendly Booking */}
+                <LeadCaptureForm result={diagnosticResult} answers={answers} />
+              </div>
             </div>
           </motion.div>
         )}

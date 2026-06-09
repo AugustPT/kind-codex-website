@@ -6,20 +6,11 @@ import { DiagnosticResult } from "../lib/types";
 
 interface ResultScreenProps {
   result: DiagnosticResult;
-  onCtaClick: () => void;
 }
 
-export default function ResultScreen({ result, onCtaClick }: ResultScreenProps) {
+export default function ResultScreen({ result }: ResultScreenProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      className="w-full max-w-2xl mx-auto px-6 py-12 border border-stone-200 bg-white rounded-2xl shadow-[0_4px_24px_rgba(28,25,23,0.03)] text-center relative overflow-hidden"
-    >
-      {/* Decorative terracotta border top line */}
-      <div className="absolute inset-x-0 top-0 h-[3px] bg-[#c2410c]" />
-
+    <div className="w-full text-center px-6 sm:px-8 pt-12 pb-4">
       {/* Result Badge */}
       <motion.div
         initial={{ scale: 0.95, opacity: 0 }}
@@ -79,21 +70,8 @@ export default function ResultScreen({ result, onCtaClick }: ResultScreenProps) 
         </ul>
       </motion.div>
 
-      {/* CTA Button */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.7 }}
-        className="mt-10 border-t border-stone-150 pt-8"
-      >
-        <button
-          onClick={onCtaClick}
-          className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-[#c2410c] hover:bg-[#9a3412] text-stone-50 font-bold rounded-lg transition-all duration-300 shadow-[0_4px_16px_rgba(194,65,12,0.15)] hover:shadow-[0_4px_24px_rgba(194,65,12,0.25)] cursor-pointer"
-        >
-          {result.cta}
-          <span className="text-sm">&rarr;</span>
-        </button>
-      </motion.div>
-    </motion.div>
+      {/* Thin separator */}
+      <div className="mt-8 border-t border-stone-150" />
+    </div>
   );
 }
