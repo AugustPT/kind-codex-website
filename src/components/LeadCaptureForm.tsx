@@ -61,14 +61,14 @@ export default function LeadCaptureForm({
     }
   };
 
-  // Generate next 7 business days
+  // Generate next 3 business days
   const getAvailableDates = () => {
     const dates: Date[] = [];
     const current = new Date();
     // Start tomorrow
     current.setDate(current.getDate() + 1);
     
-    while (dates.length < 7) {
+    while (dates.length < 3) {
       const day = current.getDay();
       // Skip Saturday (6) and Sunday (0)
       if (day !== 0 && day !== 6) {
