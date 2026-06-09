@@ -44,14 +44,14 @@ export default function ClarityPath({ onComplete }: ClarityPathProps) {
   return (
     <section
       id="clarity-path"
-      className="w-full py-20 bg-[#faf9f5] border-b border-stone-200 overflow-hidden relative"
+      className="w-full py-8 sm:py-20 bg-[#faf9f5] border-b border-stone-200 overflow-hidden relative"
     >
-      <div className="max-w-4xl mx-auto px-6 relative z-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Progress Navigation Line */}
         <ProgressPath currentStep={step} totalSteps={clarityQuestions.length} />
 
         {/* Step Transition Animation Wrapper */}
-        <div className="min-h-[420px] flex items-center justify-center mt-6">
+        <div className="min-h-[300px] sm:min-h-[420px] flex items-center justify-center mt-2 sm:mt-6">
           <AnimatePresence mode="wait">
             <QuestionStep
               key={currentQuestion.id}

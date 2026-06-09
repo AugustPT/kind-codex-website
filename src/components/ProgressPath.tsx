@@ -19,9 +19,9 @@ const stepNames = [
 
 export default function ProgressPath({ currentStep, totalSteps }: ProgressPathProps) {
   return (
-    <div className="w-full max-w-4xl mx-auto mb-10 px-4">
+    <div className="w-full max-w-4xl mx-auto mb-4 sm:mb-10 px-4">
       {/* Step Numbers & Name Label */}
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex justify-between items-center mb-2 sm:mb-4">
         <span className="text-[10px] font-bold uppercase tracking-widest text-[#c2410c]">
           Step {currentStep} of {totalSteps}
         </span>
@@ -31,7 +31,7 @@ export default function ProgressPath({ currentStep, totalSteps }: ProgressPathPr
       </div>
 
       {/* SVG Path Bar */}
-      <div className="relative w-full h-12 flex items-center">
+      <div className="relative w-full h-4 sm:h-12 flex items-center">
         {/* Desktop Progress Path (SVG) */}
         <div className="w-full hidden sm:block relative">
           <svg viewBox="0 0 800 40" className="w-full h-auto overflow-visible">

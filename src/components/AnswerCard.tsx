@@ -23,7 +23,7 @@ export default function AnswerCard({
       disabled={disabled}
       whileHover={{ y: -1, scale: 1.005 }}
       whileTap={{ scale: 0.995 }}
-      className={`w-full text-left p-5 rounded-xl border text-sm sm:text-base font-semibold transition-all duration-300 relative overflow-hidden flex items-center justify-between group ${
+      className={`w-full text-left p-3 sm:p-5 rounded-xl border text-sm sm:text-base font-semibold transition-all duration-300 relative overflow-hidden flex items-center justify-between group ${
         selected
           ? "bg-stone-100 border-stone-850 shadow-[0_2px_8px_rgba(28,25,23,0.03)] text-stone-900"
           : "bg-white border-stone-200 hover:border-stone-400 text-stone-700 hover:text-stone-900 shadow-[0_1px_3px_rgba(0,0,0,0.01)]"

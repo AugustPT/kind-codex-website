@@ -27,6 +27,11 @@ export default function LeadCaptureForm({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [selectedTime, setSelectedTime] = useState<string | null>(null);
+  const [isBooking, setIsBooking] = useState(false);
+  const [bookedSlot, setBookedSlot] = useState<{ date: string; time: string } | null>(null);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -56,45 +61,63 @@ export default function LeadCaptureForm({
     }
   };
 
-  const getCalendlyUrl = () => {
-    const baseUrl = "https://calendly.com/august-kindcodex";
-    const params = new URLSearchParams();
-
-    params.append("embed_domain", "kindcodex.com");
-    params.append("embed_type", "Inline");
-
-    if (formData.name) params.append("name", formData.name);
-    if (formData.email) params.append("email", formData.email);
-    if (formData.phone) {
-      params.append("phone_number", formData.phone);
-      // Fallback for custom phone fields
-      params.append("a1", formData.phone);
-    }
-    if (formData.businessName) {
-      params.append("a2", formData.businessName);
-    }
-    if (formData.website) {
-      params.append("a3", formData.website);
-    }
-
-    // Combine help request text with survey diagnostic results to pass to Calendly's multi-line answer field
-    const selectedAnswersSummary = Object.entries(answers)
-      .map(([key, val]) => `${key}: ${val}`)
-      .join(", ");
+  // Generate next 7 business days
+  const getAvailableDates = () => {
+    const dates: Date[] = [];
+    const current = new Date();
+    // Start tomorrow
+    current.setDate(current.getDate() + 1);
     
-    const combinedHelpText = `Diagnostic Category: ${result.headline}
-Help Requested: ${formData.helpText}
-Website: ${formData.website}
-Business Name: ${formData.businessName}
-Selected Answers: ${selectedAnswersSummary}`;
+    while (dates.length < 7) {
+      const day = current.getDay();
+      // Skip Saturday (6) and Sunday (0)
+      if (day !== 0 && day !== 6) {
+        dates.push(new Date(current));
+      }
+      current.setDate(current.getDate() + 1);
+    }
+    return dates;
+  };
 
-    params.append("a4", combinedHelpText);
-    
-    // Fallbacks for custom fields just in case question order is different
-    params.append("a5", formData.businessName);
-    params.append("a6", formData.website);
+  const availableDates = getAvailableDates();
+  const timeSlots = ["9:00 AM", "10:30 AM", "1:00 PM", "2:30 PM", "4:00 PM"];
 
-    return `${baseUrl}?${params.toString()}`;
+  const handleBookAppointment = async () => {
+    if (!selectedDate || !selectedTime) return;
+    setIsBooking(true);
+
+    // Prepare full diagnostic + scheduling payload
+    const bookingPayload = {
+      lead: formData,
+      diagnostics: {
+        category: result.category,
+        headline: result.headline,
+        recommendedFocus: result.recommendedFocus,
+        answers,
+      },
+      appointment: {
+        date: selectedDate,
+        time: selectedTime,
+      }
+    };
+
+    console.log("Submitting API booking request to backend:", bookingPayload);
+
+    // Simulate API network call
+    await new Promise((resolve) => setTimeout(resolve, 1200));
+
+    setIsBooking(false);
+    setBookedSlot({ date: selectedDate, time: selectedTime });
+  };
+
+  const formatDateString = (dateStr: string) => {
+    const d = new Date(dateStr);
+    return d.toLocaleDateString("en-US", {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    });
   };
 
   return (
@@ -246,37 +269,143 @@ Selected Answers: ${selectedAnswersSummary}`;
               </button>
             </form>
           </motion.div>
-        ) : (
+        ) : !bookedSlot ? (
           <motion.div
-            key="success"
+            key="scheduler"
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="p-8 pt-4 bg-white text-center"
+            className="p-6 sm:p-8 bg-white text-left"
           >
-            {/* Success Badge */}
-            <div className="w-10 h-10 bg-stone-50 border border-stone-200 text-[#c2410c] rounded-full flex items-center justify-center mx-auto mb-4 text-lg">
+            {/* Header */}
+            <div className="flex items-center gap-2 mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#c2410c]" />
+              <h3 className="text-[10px] font-bold uppercase tracking-widest text-[#c2410c]">
+                Step 2: Schedule Your Call
+              </h3>
+            </div>
+
+            <h2 className="text-xl sm:text-2xl font-serif text-stone-900 tracking-tight mb-2">
+              Select a date & time.
+            </h2>
+            <p className="text-xs sm:text-sm text-stone-500 mb-6 leading-relaxed">
+              We saved your Clarity Path report. Pick a 15-minute slot to finalize your action plan.
+            </p>
+
+            {/* Date Selection Row (Horizontal Scroll) */}
+            <h4 className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-3">
+              Available Dates
+            </h4>
+            <div className="flex gap-2.5 overflow-x-auto pb-4 scrollbar-none">
+              {availableDates.map((d) => {
+                const formattedDay = d.toLocaleDateString("en-US", { weekday: "short" });
+                const formattedNum = d.toLocaleDateString("en-US", { day: "numeric" });
+                const isSelected = selectedDate === d.toDateString();
+                
+                return (
+                  <button
+                    key={d.toDateString()}
+                    type="button"
+                    onClick={() => setSelectedDate(d.toDateString())}
+                    className={`flex-shrink-0 w-[64px] py-3.5 rounded-xl border flex flex-col items-center justify-center transition-all duration-200 cursor-pointer ${
+                      isSelected
+                        ? "border-[#c2410c] bg-stone-50 text-[#c2410c] font-bold"
+                        : "border-stone-200 hover:border-stone-400 text-stone-600 bg-white"
+                    }`}
+                  >
+                    <span className="text-[9px] uppercase tracking-wider mb-1 font-semibold">{formattedDay}</span>
+                    <span className="text-lg font-serif">{formattedNum}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Time Slots Section */}
+            {selectedDate && (
+              <motion.div
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-6"
+              >
+                <h4 className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-3">
+                  Available Times (in your local timezone)
+                </h4>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                  {timeSlots.map((t) => {
+                    const isSelected = selectedTime === t;
+                    return (
+                      <button
+                        key={t}
+                        type="button"
+                        onClick={() => setSelectedTime(t)}
+                        className={`py-3 rounded-lg border text-xs font-bold tracking-wide transition-all duration-200 cursor-pointer ${
+                          isSelected
+                            ? "border-[#c2410c] bg-[#c2410c] text-stone-50"
+                            : "border-stone-200 hover:border-stone-400 text-stone-700 bg-white"
+                        }`}
+                      >
+                        {t}
+                      </button>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            )}
+
+            {/* Submit Booking */}
+            <div className="mt-8 border-t border-stone-200 pt-6">
+              <button
+                type="button"
+                onClick={handleBookAppointment}
+                disabled={!selectedDate || !selectedTime || isBooking}
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-[#c2410c] hover:bg-[#a3350b] disabled:bg-stone-100 disabled:text-stone-400 text-stone-50 font-bold rounded-lg transition-all duration-300 shadow-[0_4px_12px_rgba(194,65,12,0.1)] cursor-pointer animate-pulse-subtle"
+              >
+                {isBooking ? "Booking your Call..." : "Confirm & Schedule 15-Minute Call"}
+                <span className="text-sm">&rarr;</span>
+              </button>
+            </div>
+          </motion.div>
+        ) : (
+          <motion.div
+            key="booking-success"
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="p-8 py-12 bg-white text-center"
+          >
+            {/* Success Icon */}
+            <div className="w-12 h-12 bg-stone-50 border border-stone-200 text-[#c2410c] rounded-full flex items-center justify-center mx-auto mb-6 text-xl">
               ✓
             </div>
 
-            {/* Headline */}
-            <h3 className="text-xl font-serif text-stone-900 mb-2">
-              Your Clarity Path has been saved.
+            <h3 className="text-2xl font-serif text-stone-900 mb-2">
+              Clarity Call Scheduled!
             </h3>
-
-            {/* Subtitle */}
-            <p className="text-xs sm:text-sm text-stone-600 leading-relaxed max-w-md mx-auto font-medium mb-6">
-              Now, pick a convenient time below to finalize and book your 15-minute clarity call inline.
-            </p>
-
-            {/* Inline Calendly Iframe widget */}
-            <div className="w-full border border-stone-200 rounded-xl overflow-hidden bg-stone-50">
-              <iframe
-                src={getCalendlyUrl()}
-                className="w-full h-[580px] border-0"
-                title="Schedule a Call"
-              />
+            
+            <div className="max-w-md mx-auto bg-stone-50 border border-stone-200/60 rounded-xl p-6 my-6 text-left">
+              <div className="flex flex-col gap-3 text-sm text-stone-700 font-semibold font-sans">
+                <div className="flex justify-between border-b border-stone-150 pb-2">
+                  <span className="text-stone-400 font-medium">Attendee:</span>
+                  <span>{formData.name}</span>
+                </div>
+                <div className="flex justify-between border-b border-stone-150 pb-2">
+                  <span className="text-stone-400 font-medium">Event:</span>
+                  <span>15-Minute Clarity Call</span>
+                </div>
+                <div className="flex justify-between border-b border-stone-150 pb-2">
+                  <span className="text-stone-400 font-medium">Date:</span>
+                  <span>{formatDateString(bookedSlot.date)}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-stone-400 font-medium">Time:</span>
+                  <span>{bookedSlot.time}</span>
+                </div>
+              </div>
             </div>
+
+            <p className="text-xs sm:text-sm text-stone-500 max-w-sm mx-auto leading-relaxed">
+              We have sent a calendar invite and your diagnostic details to <span className="font-bold text-stone-800">{formData.email}</span>. We look forward to meeting with you!
+            </p>
           </motion.div>
         )}
       </AnimatePresence>
