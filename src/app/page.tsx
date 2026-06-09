@@ -14,31 +14,26 @@ import FinalCTA from "@/components/FinalCTA";
 export default function Home() {
   const [diagnosticResult, setDiagnosticResult] = useState<DiagnosticResult | null>(null);
   const [answers, setAnswers] = useState<Record<string, string>>({});
-  
-  const pathRef = useRef<HTMLDivElement>(null);
-  const resultRef = useRef<HTMLDivElement>(null);
+  const [isPathActive, setIsPathActive] = useState(false);
 
   const handleStartPath = () => {
-    pathRef.current?.scrollIntoView({ behavior: "smooth" });
+    setIsPathActive(true);
+    // Instant scroll to top since we are switching viewports
+    window.scrollTo({ top: 0, behavior: "instant" as any });
   };
 
   const handleCompletePath = (result: DiagnosticResult, finalAnswers: Record<string, string>) => {
     setDiagnosticResult(result);
     setAnswers(finalAnswers);
-    
-    // Smooth scroll to result screen after a brief delay for rendering
-    setTimeout(() => {
-      resultRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
+    window.scrollTo({ top: 0, behavior: "instant" as any });
   };
 
   const handleResetPath = () => {
     setDiagnosticResult(null);
+    setIsPathActive(false);
     setAnswers({});
-    // Scroll back to top
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: "instant" as any });
-    }, 50);
+    // Instant scroll back to top
+    window.scrollTo({ top: 0, behavior: "instant" as any });
   };
 
   const handleBookCallExternal = () => {
@@ -86,16 +81,38 @@ export default function Home() {
     );
   }
 
-  // 2. Full Homepage Layout for Visitors (Path not yet completed)
+  // 2. Focused Layout for Active Clarity Path (Answering questions)
+  if (isPathActive) {
+    return (
+      <div className="flex-1 flex flex-col w-full bg-[#faf9f5] text-[#1c1917] min-h-screen">
+        {/* Minimal Editorial Header */}
+        <header className="w-full py-6 px-6 border-b border-stone-200 bg-[#faf9f5]">
+          <div className="max-w-2xl mx-auto flex justify-between items-center">
+            <span className="font-serif font-bold text-xl tracking-tight text-stone-900">
+              KindCodex<span className="text-[#c2410c]">.</span>
+            </span>
+            <button
+              onClick={handleResetPath}
+              className="text-[10px] font-bold uppercase tracking-wider text-stone-400 hover:text-stone-700 transition-colors cursor-pointer"
+            >
+              ← Back to Home
+            </button>
+          </div>
+        </header>
+
+        {/* Questionnaire Wrapper */}
+        <main className="flex-1 flex items-center justify-center bg-[#faf9f5]">
+          <ClarityPath onComplete={handleCompletePath} />
+        </main>
+      </div>
+    );
+  }
+
+  // 3. Full Homepage Layout for Visitors (Path not started yet)
   return (
     <div className="flex-1 flex flex-col w-full bg-[#faf9f5] text-[#1c1917] overflow-x-hidden">
       {/* 1. Hero */}
       <Hero onStart={handleStartPath} />
-
-      {/* 2. Interactive Clarity Path wrapper */}
-      <div ref={pathRef}>
-        <ClarityPath onComplete={handleCompletePath} />
-      </div>
 
       {/* 5. Supporting Proof Sections */}
       <ServiceCards />
