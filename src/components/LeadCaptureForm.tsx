@@ -56,6 +56,47 @@ export default function LeadCaptureForm({
     }
   };
 
+  const getCalendlyUrl = () => {
+    const baseUrl = "https://calendly.com/august-kindcodex";
+    const params = new URLSearchParams();
+
+    params.append("embed_domain", "kindcodex.com");
+    params.append("embed_type", "Inline");
+
+    if (formData.name) params.append("name", formData.name);
+    if (formData.email) params.append("email", formData.email);
+    if (formData.phone) {
+      params.append("phone_number", formData.phone);
+      // Fallback for custom phone fields
+      params.append("a1", formData.phone);
+    }
+    if (formData.businessName) {
+      params.append("a2", formData.businessName);
+    }
+    if (formData.website) {
+      params.append("a3", formData.website);
+    }
+
+    // Combine help request text with survey diagnostic results to pass to Calendly's multi-line answer field
+    const selectedAnswersSummary = Object.entries(answers)
+      .map(([key, val]) => `${key}: ${val}`)
+      .join(", ");
+    
+    const combinedHelpText = `Diagnostic Category: ${result.headline}
+Help Requested: ${formData.helpText}
+Website: ${formData.website}
+Business Name: ${formData.businessName}
+Selected Answers: ${selectedAnswersSummary}`;
+
+    params.append("a4", combinedHelpText);
+    
+    // Fallbacks for custom fields just in case question order is different
+    params.append("a5", formData.businessName);
+    params.append("a6", formData.website);
+
+    return `${baseUrl}?${params.toString()}`;
+  };
+
   return (
     <div className="w-full bg-white">
       <AnimatePresence mode="wait">
@@ -231,7 +272,7 @@ export default function LeadCaptureForm({
             {/* Inline Calendly Iframe widget */}
             <div className="w-full border border-stone-200 rounded-xl overflow-hidden bg-stone-50">
               <iframe
-                src="https://calendly.com/august-kindcodex?embed_domain=kindcodex.com&embed_type=Inline"
+                src={getCalendlyUrl()}
                 className="w-full h-[580px] border-0"
                 title="Schedule a Call"
               />
