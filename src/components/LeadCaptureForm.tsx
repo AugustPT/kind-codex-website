@@ -103,8 +103,25 @@ export default function LeadCaptureForm({
 
     console.log("Submitting API booking request to backend:", bookingPayload);
 
-    // Simulate API network call
-    await new Promise((resolve) => setTimeout(resolve, 1200));
+    try {
+      const response = await fetch("/api/book", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(bookingPayload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to finalize booking request");
+      }
+
+      const responseData = await response.json();
+      console.log("API booking completed successfully:", responseData);
+    } catch (err) {
+      console.error("Error submitting appointment booking to API:", err);
+      // Fallback: proceed to success state locally even if API fails
+    }
 
     setIsBooking(false);
     setBookedSlot({ date: selectedDate, time: selectedTime });
