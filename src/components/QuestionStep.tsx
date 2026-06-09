@@ -39,7 +39,7 @@ export default function QuestionStep({
       </span>
 
       {/* Question Headline */}
-      <h2 className="text-base sm:text-2xl md:text-3xl font-serif font-semibold text-stone-900 leading-snug tracking-tight mb-4 sm:mb-8">
+      <h2 className="text-2xl sm:text-3xl font-serif font-semibold text-stone-900 leading-snug tracking-tight mb-4 sm:mb-8">
         {question.question}
       </h2>
 
