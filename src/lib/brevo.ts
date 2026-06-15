@@ -32,6 +32,15 @@ export interface LeadAttributes {
   NURTURE_STAGE?: number;
   BOOKED?: boolean;
   AUDIT_RESULT?: string;
+  // CRM / admin pipeline fields
+  PIPELINE?: string; // "inbound" | "outbound"
+  STAGE?: string; // outbound stage
+  COMPANY?: string;
+  FUNNEL?: string;
+  PAIN?: string;
+  RESEARCH?: string;
+  CONTACT_URL?: string;
+  DRAFTED_AT?: string;
 }
 
 // Create or update a contact and (optionally) add to the nurture list.
@@ -101,6 +110,7 @@ export async function sendEmail(params: {
 export interface NurtureContact {
   email: string;
   attributes: Record<string, any>;
+  createdAt?: string;
 }
 
 // Pull every contact on the nurture list (paginated).
@@ -123,4 +133,39 @@ export async function getNurtureContacts(): Promise<NurtureContact[]> {
     offset += limit;
   }
   return out;
+}
+
+// Pull ALL contacts (paginated) — inbound audit leads AND outbound prospects —
+// for the admin pipeline view.
+export async function getAllContacts(): Promise<NurtureContact[]> {
+  if (!hasBrevo()) return [];
+  const out: NurtureContact[] = [];
+  let offset = 0;
+  const limit = 500;
+  for (let page = 0; page < 50; page++) {
+    const res = await fetch(`${BASE}/contacts?limit=${limit}&offset=${offset}&sort=desc`, {
+      headers: headers(),
+    });
+    if (!res.ok) break;
+    const data = await res.json();
+    const contacts = data.contacts || [];
+    for (const c of contacts)
+      out.push({ email: c.email, attributes: c.attributes || {}, createdAt: c.createdAt });
+    if (contacts.length < limit) break;
+    offset += limit;
+  }
+  return out;
+}
+
+// Add/update an outbound prospect (researched lead) in the CRM.
+export async function upsertProspect(
+  email: string,
+  attributes: LeadAttributes & Record<string, any>
+): Promise<void> {
+  if (!hasBrevo()) return;
+  await fetch(`${BASE}/contacts`, {
+    method: "POST",
+    headers: headers(),
+    body: JSON.stringify({ email, attributes, updateEnabled: true }),
+  }).catch(() => {});
 }

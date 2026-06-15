@@ -146,6 +146,9 @@ Email: ${lead.email}<br/>Phone: ${lead.phone || "-"}<br/>Source: ${source}</p>`,
         AUDIT_RESULT: diagnostics.headline || "",
         NURTURE_STAGE: 0,
         BOOKED: false,
+        PIPELINE: "inbound",
+        FUNNEL: source,
+        COMPANY: lead.businessName || "",
       });
       const p = { firstName, source, result: diagnostics.headline, bookingUrl: BOOKING_URL };
       const stage0 = NURTURE_SEQUENCE[0];
