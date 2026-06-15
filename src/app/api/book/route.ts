@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { generateEmailHtml, EmailTemplateData } from "@/lib/emailTemplate";
+import { upsertLead, updateLead, sendEmail as sendBrevoEmail } from "@/lib/brevo";
+import { NURTURE_SEQUENCE } from "@/lib/nurtureSequence";
 
 export async function POST(request: Request) {
   try {
@@ -18,8 +20,8 @@ export async function POST(request: Request) {
       name: lead.name,
       email: lead.email,
       businessName: lead.businessName,
-      date: appointment.date,
-      time: appointment.time,
+      date: appointment?.date,
+      time: appointment?.time,
     });
 
     // Compile email HTML template data
@@ -114,6 +116,53 @@ export async function POST(request: Request) {
         to: lead.email,
         subject: "Confirmed: 15-Minute Clarity Call & Opportunity Audit Report",
         textLength: emailHtml.length,
+      });
+    }
+
+    // ---- Brevo: nurture enrollment + notifications (reliable via API) ----
+    const BOOKING_URL = process.env.BOOKING_URL || "https://calendly.com/august-kindcodex";
+    const firstName = (lead.name || "there").split(" ")[0];
+    const notifyTo = process.env.LEAD_NOTIFY_EMAIL || "august@kindcodex.com";
+
+    if (appointment?.date) {
+      // They booked a call — pull them out of nurture and notify August.
+      await updateLead(lead.email, { BOOKED: true });
+      await sendBrevoEmail({
+        to: notifyTo,
+        replyTo: lead.email,
+        subject: `[${source}] CALL BOOKED: ${lead.name}${lead.businessName ? ` (${lead.businessName})` : ""}`,
+        html: `<p><strong>${lead.name}</strong> booked a call.</p>
+<p>When: ${appointment.date} ${appointment.time}<br/>
+Email: ${lead.email}<br/>Phone: ${lead.phone || "-"}<br/>Source: ${source}</p>`,
+      });
+    } else {
+      // New lead — enroll in nurture, fire the first email now, notify August.
+      const nowIso = new Date().toISOString();
+      await upsertLead(lead.email, {
+        FIRSTNAME: firstName,
+        BUSINESS: lead.businessName || "",
+        SOURCE: source,
+        SIGNUP_TS: nowIso,
+        AUDIT_RESULT: diagnostics.headline || "",
+        NURTURE_STAGE: 0,
+        BOOKED: false,
+      });
+      const p = { firstName, source, result: diagnostics.headline, bookingUrl: BOOKING_URL };
+      const stage0 = NURTURE_SEQUENCE[0];
+      await sendBrevoEmail({
+        to: lead.email,
+        toName: lead.name,
+        subject: stage0.subject(p),
+        html: stage0.html(p),
+      });
+      await updateLead(lead.email, { NURTURE_STAGE: 1 });
+      await sendBrevoEmail({
+        to: notifyTo,
+        replyTo: lead.email,
+        subject: `[${source}] New lead: ${lead.name}${lead.businessName ? ` (${lead.businessName})` : ""}`,
+        html: `<p>New lead from <strong>${source}</strong> — enrolled in nurture.</p>
+<p>Name: ${lead.name}<br/>Business: ${lead.businessName || "-"}<br/>
+Email: ${lead.email}<br/>Phone: ${lead.phone || "-"}<br/>Result: ${diagnostics.headline}</p>`,
       });
     }
 
