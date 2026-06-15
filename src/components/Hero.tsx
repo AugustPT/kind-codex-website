@@ -5,11 +5,23 @@ import { motion } from "framer-motion";
 
 interface HeroProps {
   onStart: () => void;
+  eyebrow?: string;
+  headline?: string;
+  subheadline?: string;
+  ctaLabel?: string;
+  steps?: string[];
 }
 
-const steps = ["Find", "Understand", "Trust", "Contact", "Buy"];
+const DEFAULT_STEPS = ["Find", "Understand", "Trust", "Contact", "Buy"];
 
-export default function Hero({ onStart }: HeroProps) {
+export default function Hero({
+  onStart,
+  eyebrow = "KindCodex Platform",
+  headline = "What’s stopping your business from getting more customers?",
+  subheadline = "Follow the path. See what your business is missing.",
+  ctaLabel = "Start the Clarity Path",
+  steps = DEFAULT_STEPS,
+}: HeroProps) {
   return (
     <section className="relative w-full py-24 md:py-32 overflow-hidden border-b border-stone-200 bg-[#faf9f5] flex items-center">
       {/* Subtle background paper highlight */}
@@ -30,7 +42,7 @@ export default function Hero({ onStart }: HeroProps) {
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-stone-200 bg-stone-100/60 text-[9px] font-bold uppercase tracking-widest text-stone-600 mb-6"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#c2410c]" />
-              KindCodex Platform
+              {eyebrow}
             </motion.div>
 
             {/* Headline with elegant serif font */}
@@ -40,7 +52,7 @@ export default function Hero({ onStart }: HeroProps) {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="text-4xl sm:text-5xl md:text-6xl font-serif text-stone-900 tracking-tight leading-[1.12]"
             >
-              What’s stopping your business from getting more customers?
+              {headline}
             </motion.h1>
 
             {/* Subheadline */}
@@ -50,7 +62,7 @@ export default function Hero({ onStart }: HeroProps) {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="mt-6 text-base sm:text-lg text-stone-600 max-w-xl font-medium leading-relaxed"
             >
-              Follow the path. See what your business is missing.
+              {subheadline}
             </motion.p>
 
             {/* Start Button */}
@@ -64,7 +76,7 @@ export default function Hero({ onStart }: HeroProps) {
                 onClick={onStart}
                 className="group relative inline-flex items-center gap-3 px-8 py-4 bg-stone-900 text-stone-50 font-bold rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(28,25,23,0.06)] hover:shadow-[0_12px_24px_rgba(194,65,12,0.12)] transition-all duration-300 transform active:scale-98 cursor-pointer"
               >
-                Start the Clarity Path
+                {ctaLabel}
                 <svg
                   className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
                   fill="none"

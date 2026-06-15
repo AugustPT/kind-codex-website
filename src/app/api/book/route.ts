@@ -5,11 +5,11 @@ import { generateEmailHtml, EmailTemplateData } from "@/lib/emailTemplate";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { lead, diagnostics, appointment } = body;
+    const { source = "clarity-path-home", lead, diagnostics, appointment } = body;
 
-    if (!lead || !diagnostics || !appointment) {
+    if (!lead || !diagnostics) {
       return NextResponse.json(
-        { error: "Missing required booking details" },
+        { error: "Missing required lead details" },
         { status: 400 }
       );
     }
@@ -34,8 +34,8 @@ export async function POST(request: Request) {
       resultCategory: diagnostics.category,
       recommendedFocus: diagnostics.recommendedFocus,
       answers: diagnostics.answers,
-      appointmentDate: appointment.date,
-      appointmentTime: appointment.time,
+      appointmentDate: appointment?.date ?? "",
+      appointmentTime: appointment?.time ?? "",
     };
 
     const emailHtml = generateEmailHtml(emailData);
@@ -72,6 +72,40 @@ export async function POST(request: Request) {
         html: emailHtml,
       });
       console.log("Email dispatch completed successfully!");
+
+      // Internal, source-tagged notification so YOU get every lead sorted by
+      // which page it came from (the subject prefix makes inbox filtering easy).
+      const notifyTo = process.env.LEAD_NOTIFY_EMAIL || SMTP_USER;
+      if (notifyTo) {
+        const apptLine = appointment?.date
+          ? `Call slot requested: ${appointment.date} ${appointment.time}`
+          : "No call slot selected yet";
+        const answersList = diagnostics.answers
+          ? Object.entries(diagnostics.answers)
+              .map(([q, a]) => `<li><strong>${q}:</strong> ${a}</li>`)
+              .join("")
+          : "";
+        await transporter.sendMail({
+          from: SMTP_FROM,
+          to: notifyTo,
+          replyTo: lead.email,
+          subject: `[${source}] New lead: ${lead.name}${
+            lead.businessName ? ` (${lead.businessName})` : ""
+          }`,
+          html: `<h2 style="font-family:sans-serif">New lead — source: ${source}</h2>
+<p style="font-family:sans-serif;line-height:1.6">
+<strong>Name:</strong> ${lead.name}<br/>
+<strong>Business:</strong> ${lead.businessName || "-"}<br/>
+<strong>Email:</strong> ${lead.email}<br/>
+<strong>Phone:</strong> ${lead.phone || "-"}<br/>
+<strong>Website / social:</strong> ${lead.website || "-"}<br/>
+<strong>Wants help with:</strong> ${lead.helpText || "-"}<br/>
+<strong>Diagnostic:</strong> ${diagnostics.headline} (${diagnostics.category})<br/>
+<strong>${apptLine}</strong></p>
+<ul style="font-family:sans-serif">${answersList}</ul>`,
+        });
+        console.log(`Internal lead notification sent to ${notifyTo} [${source}]`);
+      }
     } else {
       console.warn(
         "WARNING: SMTP environment variables are not configured. Transactional email sending was simulated."
@@ -88,8 +122,8 @@ export async function POST(request: Request) {
       message: "Clarity call successfully booked",
       booking: {
         attendee: lead.name,
-        date: appointment.date,
-        time: appointment.time,
+        date: appointment?.date ?? null,
+        time: appointment?.time ?? null,
       },
     });
   } catch (err: any) {

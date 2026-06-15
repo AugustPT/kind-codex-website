@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const pathSteps = [
+const DEFAULT_STEPS = [
   "Find you.",
   "Understand you.",
   "Trust you.",
@@ -12,17 +12,27 @@ const pathSteps = [
   "Come back again.",
 ];
 
-export default function CustomerPath() {
+interface CustomerPathProps {
+  eyebrow?: string;
+  heading?: string;
+  steps?: string[];
+}
+
+export default function CustomerPath({
+  eyebrow = "Architectural Design",
+  heading = "The customer path we build",
+  steps: pathSteps = DEFAULT_STEPS,
+}: CustomerPathProps) {
   return (
     <section className="w-full py-20 md:py-32 bg-[#faf9f5] border-b border-stone-200 overflow-hidden relative">
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         {/* Section title */}
         <div className="mb-16 md:mb-24 text-center">
           <span className="text-[9px] font-bold tracking-widest text-[#c2410c] uppercase bg-stone-100 border border-stone-200/60 px-3 py-1 rounded-md mb-4 inline-block">
-            Architectural Design
+            {eyebrow}
           </span>
           <h2 className="text-3xl sm:text-4xl font-serif text-stone-900 max-w-lg mx-auto leading-tight">
-            The customer path we build
+            {heading}
           </h2>
         </div>
 
