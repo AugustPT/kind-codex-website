@@ -154,7 +154,7 @@ export default function LeadCaptureForm({
             </h2>
 
             <form onSubmit={handleSubmit} className="space-y-5">
-              {/* Name & Business */}
+              {/* Name & Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-2">
                   <label
@@ -171,46 +171,6 @@ export default function LeadCaptureForm({
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Jane Doe"
-                    className="w-full bg-stone-50 border border-stone-200 focus:border-[#c2410c] focus:ring-1 focus:ring-[#c2410c] rounded-lg p-3 text-sm text-stone-900 outline-none transition-all duration-200"
-                  />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <label
-                    htmlFor="businessName"
-                    className="text-[9px] font-bold text-stone-400 uppercase tracking-widest"
-                  >
-                    Business Name
-                  </label>
-                  <input
-                    required
-                    type="text"
-                    id="businessName"
-                    name="businessName"
-                    value={formData.businessName}
-                    onChange={handleChange}
-                    placeholder="Boutique Cafe"
-                    className="w-full bg-stone-50 border border-stone-200 focus:border-[#c2410c] focus:ring-1 focus:ring-[#c2410c] rounded-lg p-3 text-sm text-stone-900 outline-none transition-all duration-200"
-                  />
-                </div>
-              </div>
-
-              {/* Website & Email */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="flex flex-col gap-2">
-                  <label
-                    htmlFor="website"
-                    className="text-[9px] font-bold text-stone-400 uppercase tracking-widest"
-                  >
-                    Website or social link
-                  </label>
-                  <input
-                    required
-                    type="text"
-                    id="website"
-                    name="website"
-                    value={formData.website}
-                    onChange={handleChange}
-                    placeholder="example.com"
                     className="w-full bg-stone-50 border border-stone-200 focus:border-[#c2410c] focus:ring-1 focus:ring-[#c2410c] rounded-lg p-3 text-sm text-stone-900 outline-none transition-all duration-200"
                   />
                 </div>
@@ -234,23 +194,22 @@ export default function LeadCaptureForm({
                 </div>
               </div>
 
-              {/* Phone */}
+              {/* Website */}
               <div className="flex flex-col gap-2">
                 <label
-                  htmlFor="phone"
+                  htmlFor="website"
                   className="text-[9px] font-bold text-stone-400 uppercase tracking-widest"
-                  aria-label="Phone Number"
                 >
-                  Phone
+                  Website or social link
                 </label>
                 <input
                   required
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
+                  type="text"
+                  id="website"
+                  name="website"
+                  value={formData.website}
                   onChange={handleChange}
-                  placeholder="+1 (555) 000-0000"
+                  placeholder="example.com"
                   className="w-full bg-stone-50 border border-stone-200 focus:border-[#c2410c] focus:ring-1 focus:ring-[#c2410c] rounded-lg p-3 text-sm text-stone-900 outline-none transition-all duration-200"
                 />
               </div>
@@ -262,7 +221,7 @@ export default function LeadCaptureForm({
                   className="text-[9px] font-bold text-stone-400 uppercase tracking-widest"
                 >
                   What do you want help with?
-                  </label>
+                </label>
                 <textarea
                   required
                   id="helpText"

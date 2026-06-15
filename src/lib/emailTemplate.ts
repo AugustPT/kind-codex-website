@@ -161,10 +161,16 @@ export function generateEmailHtml(data: EmailTemplateData): string {
                       CONTACT & BUSINESS DETAILS
                     </h4>
                     <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #faf9f5; border: 1px solid #e7e5e4; border-radius: 12px; padding: 16px; font-size: 13px; color: #44403c;">
+                      ${
+                        businessName
+                          ? `
                       <tr>
                         <td style="padding: 4px 0; font-weight: 600; width: 35%; color: #78716c;">Company:</td>
                         <td style="padding: 4px 0; font-weight: 700; color: #1c1917; width: 65%;">${businessName}</td>
                       </tr>
+                      `
+                          : ""
+                      }
                       <tr>
                         <td style="padding: 4px 0; font-weight: 600; color: #78716c;">Website:</td>
                         <td style="padding: 4px 0; font-weight: 700; color: #1c1917;">
@@ -173,10 +179,16 @@ export function generateEmailHtml(data: EmailTemplateData): string {
                           }" target="_blank" style="color: #c2410c; text-decoration: none;">${website}</a>
                         </td>
                       </tr>
+                      ${
+                        phone
+                          ? `
                       <tr>
                         <td style="padding: 4px 0; font-weight: 600; color: #78716c;">Phone:</td>
                         <td style="padding: 4px 0; font-weight: 700; color: #1c1917;">${phone}</td>
                       </tr>
+                      `
+                          : ""
+                      }
                       <tr>
                         <td style="padding: 4px 0; font-weight: 600; color: #78716c;">Email:</td>
                         <td style="padding: 4px 0; font-weight: 700; color: #1c1917;">${email}</td>
