@@ -1,0 +1,6 @@
+.agents/
+KindCodex Build/
+scratch/
+dist/
+*.png
+dev.log
