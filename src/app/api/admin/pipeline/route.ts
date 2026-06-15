@@ -16,7 +16,14 @@ export async function GET(req: Request) {
 
   const contacts = await getAllContacts();
 
-  const rows = contacts.map((c) => {
+  const rows = contacts
+    // only contacts our system added to a pipeline (audit leads have SOURCE;
+    // prospects have PIPELINE) — skip stray/unrelated Brevo contacts
+    .filter((c) => {
+      const a = c.attributes || {};
+      return a.PIPELINE || a.SOURCE;
+    })
+    .map((c) => {
     const a = c.attributes || {};
     const pipeline = (a.PIPELINE || (a.SOURCE ? "inbound" : "")) as string;
     const isInbound = pipeline === "inbound" || (!a.PIPELINE && a.SOURCE);
