@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { generateEmailHtml, EmailTemplateData } from "@/lib/emailTemplate";
 import { upsertLead, updateLead, sendEmail as sendBrevoEmail } from "@/lib/brevo";
-import { NURTURE_SEQUENCE } from "@/lib/nurtureSequence";
 
 export async function POST(request: Request) {
   try {
@@ -120,13 +119,22 @@ export async function POST(request: Request) {
     }
 
     // ---- Brevo: nurture enrollment + notifications (reliable via API) ----
-    const BOOKING_URL = process.env.BOOKING_URL || "https://calendly.com/august-kindcodex";
     const firstName = (lead.name || "there").split(" ")[0];
     const notifyTo = process.env.LEAD_NOTIFY_EMAIL || "august@kindcodex.com";
 
     if (appointment?.date) {
-      // They booked a call — pull them out of nurture and notify August.
+      // They booked a call — pull them out of nurture, confirm to THEM, notify August.
       await updateLead(lead.email, { BOOKED: true });
+      await sendBrevoEmail({
+        to: lead.email,
+        toName: lead.name,
+        subject: "You're booked — your 15-minute KindCodex call",
+        html: `<div style="font-family:-apple-system,Segoe UI,Arial,sans-serif;max-width:520px;color:#1c1917;line-height:1.6;font-size:15px">
+<p>Hi ${firstName},</p>
+<p>You're all set — your 15-minute call is confirmed for <strong>${appointment.date} at ${appointment.time}</strong>.</p>
+<p>On the call we'll walk through what your audit surfaced and exactly how we'd fix it. Talk soon.</p>
+<p>— August, KindCodex</p></div>`,
+      });
       await sendBrevoEmail({
         to: notifyTo,
         replyTo: lead.email,
@@ -151,15 +159,9 @@ Email: ${lead.email}<br/>Phone: ${lead.phone || "-"}<br/>Source: ${source}</p>`,
         COMPANY: lead.businessName || "",
         REF: ref || "",
       });
-      const p = { firstName, source, result: diagnostics.headline, bookingUrl: BOOKING_URL };
-      const stage0 = NURTURE_SEQUENCE[0];
-      await sendBrevoEmail({
-        to: lead.email,
-        toName: lead.name,
-        subject: stage0.subject(p),
-        html: stage0.html(p),
-      });
-      await updateLead(lead.email, { NURTURE_STAGE: 1 });
+      // No email to the lead here — the on-page flow already shows their result
+      // and the booking step. The nurture cron sends the first follow-up LATER,
+      // and ONLY if they don't book — so bookers never get a redundant "book" email.
       await sendBrevoEmail({
         to: notifyTo,
         replyTo: lead.email,
