@@ -44,6 +44,7 @@ export async function GET(req: Request) {
       stage,
       nurtureStage: a.NURTURE_STAGE ?? null,
       booked: a.BOOKED === true,
+      contactEmail: a.CONTACT_EMAIL || "",
       pain: a.PAIN || "",
       research: a.RESEARCH || "",
       result: a.AUDIT_RESULT || "",

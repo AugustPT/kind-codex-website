@@ -14,6 +14,7 @@ interface Row {
   pain: string;
   research: string;
   result: string;
+  contactEmail: string;
   contactUrl: string;
   draftedAt: string;
   createdAt: string;
@@ -158,7 +159,7 @@ export default function AdminPage() {
                   <td style={td}>
                     <div style={{ fontWeight: 600 }}>{r.name}</div>
                     {r.company && r.company !== r.name && <div style={{ color: "#8a8a93" }}>{r.company}</div>}
-                    <div style={{ color: "#a8a29e", fontSize: 11 }}>{r.email}</div>
+                    <div style={{ color: "#a8a29e", fontSize: 11 }}>{r.contactEmail || r.email}</div>
                     {r.contactUrl && (
                       <a href={r.contactUrl} target="_blank" rel="noreferrer" style={{ color: "#c2410c", fontSize: 11 }}>site ↗</a>
                     )}
