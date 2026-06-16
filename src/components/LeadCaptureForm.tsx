@@ -11,6 +11,8 @@ interface LeadCaptureFormProps {
   // Which page/funnel this lead came from, e.g. "never-miss-a-lead".
   // Keeps leads sorted into separate categories. Defaults to the home audit.
   source?: string;
+  // Who/what referred them (from ?ref= in the URL), e.g. "jared".
+  refTag?: string;
 }
 
 export default function LeadCaptureForm({
@@ -18,6 +20,7 @@ export default function LeadCaptureForm({
   answers,
   onSuccess,
   source = "clarity-path-home",
+  refTag = "",
 }: LeadCaptureFormProps) {
   const [formData, setFormData] = useState<LeadFormData>({
     name: "",
@@ -74,6 +77,7 @@ export default function LeadCaptureForm({
 
     const bookingPayload = {
       source,
+      ref: refTag,
       lead: formData,
       diagnostics: {
         category: result.category,
@@ -143,6 +147,7 @@ export default function LeadCaptureForm({
     // Prepare full diagnostic payload (without appointment details as they will choose on Calendly)
     const leadPayload = {
       source,
+      ref: refTag,
       lead: formData,
       diagnostics: {
         category: result.category,

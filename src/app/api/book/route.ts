@@ -7,7 +7,7 @@ import { NURTURE_SEQUENCE } from "@/lib/nurtureSequence";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { source = "clarity-path-home", lead, diagnostics, appointment } = body;
+    const { source = "clarity-path-home", ref = "", lead, diagnostics, appointment } = body;
 
     if (!lead || !diagnostics) {
       return NextResponse.json(
@@ -149,6 +149,7 @@ Email: ${lead.email}<br/>Phone: ${lead.phone || "-"}<br/>Source: ${source}</p>`,
         PIPELINE: "inbound",
         FUNNEL: source,
         COMPANY: lead.businessName || "",
+        REF: ref || "",
       });
       const p = { firstName, source, result: diagnostics.headline, bookingUrl: BOOKING_URL };
       const stage0 = NURTURE_SEQUENCE[0];

@@ -8,6 +8,7 @@ interface Row {
   company: string;
   pipeline: string;
   funnel: string;
+  ref: string;
   stage: string;
   nurtureStage: number | null;
   booked: boolean;
@@ -109,7 +110,7 @@ export default function AdminPage() {
     .filter((r) => filter === "all" || r.pipeline === filter)
     .filter((r) => {
       if (!q) return true;
-      const s = `${r.name} ${r.company} ${r.email} ${r.funnel} ${r.pain} ${r.research}`.toLowerCase();
+      const s = `${r.name} ${r.company} ${r.email} ${r.funnel} ${r.ref} ${r.pain} ${r.research}`.toLowerCase();
       return s.includes(q.toLowerCase());
     });
 
@@ -167,7 +168,10 @@ export default function AdminPage() {
                   <td style={td}>
                     <span style={{ ...pill, background: r.pipeline === "inbound" ? "#dcfce7" : "#dbeafe", color: r.pipeline === "inbound" ? "#166534" : "#1e40af" }}>{r.pipeline}</span>
                   </td>
-                  <td style={td}>{r.funnel}</td>
+                  <td style={td}>
+                    {r.funnel}
+                    {r.ref && <div style={{ fontSize: 11, color: "#c2410c", fontWeight: 600 }}>via {r.ref}</div>}
+                  </td>
                   <td style={td}>
                     <span style={{ ...pill, background: r.booked ? "#c2410c" : "#f5f5f4", color: r.booked ? "#fff" : "#44403c" }}>{r.stage}</span>
                   </td>

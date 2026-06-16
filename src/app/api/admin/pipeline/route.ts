@@ -41,6 +41,7 @@ export async function GET(req: Request) {
       company: a.COMPANY || a.BUSINESS || "",
       pipeline: isInbound ? "inbound" : "outbound",
       funnel: a.FUNNEL || a.SOURCE || "",
+      ref: a.REF || "",
       stage,
       nurtureStage: a.NURTURE_STAGE ?? null,
       booked: a.BOOKED === true,

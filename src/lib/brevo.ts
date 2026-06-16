@@ -41,6 +41,7 @@ export interface LeadAttributes {
   RESEARCH?: string;
   CONTACT_URL?: string;
   DRAFTED_AT?: string;
+  REF?: string; // who/what brought this lead in (e.g., "jared")
 }
 
 // Create or update a contact and (optionally) add to the nurture list.

@@ -23,18 +23,28 @@ const FUNNELS = [
   },
 ];
 
-export default async function GoPage() {
+export default async function GoPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ ref?: string }>;
+}) {
+  const { ref } = await searchParams;
+  const suffix = ref ? `?ref=${encodeURIComponent(ref)}` : "";
+
   const cards = await Promise.all(
-    FUNNELS.map(async (f) => ({
-      ...f,
-      url: `${BASE}/${f.slug}`,
-      qr: await QRCode.toString(`${BASE}/${f.slug}`, {
-        type: "svg",
-        margin: 1,
-        width: 240,
-        color: { dark: "#1c1917", light: "#ffffff" },
-      }),
-    }))
+    FUNNELS.map(async (f) => {
+      const url = `${BASE}/${f.slug}${suffix}`;
+      return {
+        ...f,
+        url,
+        qr: await QRCode.toString(url, {
+          type: "svg",
+          margin: 1,
+          width: 240,
+          color: { dark: "#1c1917", light: "#ffffff" },
+        }),
+      };
+    })
   );
 
   return (
@@ -51,9 +61,26 @@ export default async function GoPage() {
         <div style={{ fontWeight: 700, fontSize: 20, marginBottom: 4 }}>
           KindCodex<span style={{ color: "#c2410c" }}>.</span>
         </div>
-        <p style={{ color: "#8a8a93", fontSize: 13, margin: "0 0 24px" }}>
+        <p style={{ color: "#8a8a93", fontSize: 13, margin: "0 0 14px" }}>
           Have them scan the right one, or tap to open it for them.
         </p>
+        {ref && (
+          <div
+            style={{
+              display: "inline-block",
+              marginBottom: 18,
+              padding: "4px 12px",
+              borderRadius: 999,
+              background: "#fff",
+              border: "1px solid #c2410c",
+              color: "#c2410c",
+              fontSize: 12,
+              fontWeight: 600,
+            }}
+          >
+            Leads tagged: {ref}
+          </div>
+        )}
 
         {cards.map((c) => (
           <div

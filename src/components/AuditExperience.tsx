@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { DiagnosticResult } from "@/lib/types";
 import { OutcomeConfig } from "@/lib/outcomes";
@@ -19,6 +19,13 @@ export default function AuditExperience({ config }: { config: OutcomeConfig }) {
   const [diagnosticResult, setDiagnosticResult] = useState<DiagnosticResult | null>(null);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [isPathActive, setIsPathActive] = useState(false);
+  const [refTag, setRefTag] = useState("");
+
+  // Capture ?ref= (e.g. ?ref=jared) so we know who brought the lead in.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setRefTag(params.get("ref") || "");
+  }, []);
 
   const handleStartPath = () => {
     setIsPathActive(true);
@@ -76,6 +83,7 @@ export default function AuditExperience({ config }: { config: OutcomeConfig }) {
               result={diagnosticResult}
               answers={answers}
               source={config.source}
+              refTag={refTag}
             />
           </motion.div>
         </main>
