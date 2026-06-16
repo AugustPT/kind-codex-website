@@ -29,6 +29,43 @@ KindCodex · Honolulu, HI · You got this because you took our lead audit. Reply
 </div></div>`;
 }
 
+// One-tap reply questionnaire. Each option is a mailto link that opens the
+// recipient's mail app with the answer pre-filled — they tap and hit send.
+// Goal: a real reply (huge deliverability signal) + one more data point.
+const REPLY_TO = process.env.BREVO_SENDER_EMAIL || "august@kindcodex.com";
+
+function questionnaire(p: NurtureParams): string {
+  const q = isSort(p.source)
+    ? {
+        question: "One quick question — which sounds most like your pipeline right now?",
+        options: [
+          { label: "A) Good leads get buried with the tire-kickers", answer: "A — Good leads get buried with the tire-kickers" },
+          { label: "B) I sort leads/applicants by hand and it eats my time", answer: "B — I sort by hand and it eats my time" },
+          { label: "C) I've got it handled — just curious", answer: "C — Got it handled, just curious" },
+        ],
+      }
+    : {
+        question: "One quick question — which is closest to your setup right now?",
+        options: [
+          { label: "A) Leads come in but follow-up is hit or miss", answer: "A — Follow-up is hit or miss" },
+          { label: "B) I lose track of leads across texts, inbox & portals", answer: "B — I lose track of leads everywhere" },
+          { label: "C) I've got it handled — just curious", answer: "C — Got it handled, just curious" },
+        ],
+      };
+
+  const btns = q.options
+    .map((o) => {
+      const href = `mailto:${REPLY_TO}?subject=${encodeURIComponent("Quick answer")}&body=${encodeURIComponent(o.answer)}`;
+      return `<a href="${href}" style="display:block;text-align:center;padding:13px 14px;margin:8px 0;border:1px solid #c2410c;border-radius:10px;color:#c2410c;text-decoration:none;font-weight:600;font-size:14px">${o.label}</a>`;
+    })
+    .join("");
+
+  return `<div style="margin:20px 0;padding:16px;background:#faf9f5;border:1px solid #e7e5e4;border-radius:12px">
+<p style="margin:0 0 4px;font-weight:700">${q.question}</p>
+<p style="margin:0 0 12px;font-size:13px;color:#8a8a93">Tap the one that fits and hit send — takes 2 seconds, and I'll point you to the right fix.</p>
+${btns}</div>`;
+}
+
 const OFFER_LINE =
   `Quick reminder on how it works: I build it for you free, you run it free for 30 days, ` +
   `and only if it's making you money and you want to keep it is it $1,000/mo. If it's not, ` +
@@ -53,7 +90,9 @@ export const NURTURE_SEQUENCE: NurtureStage[] = [
             ? `The short version: you're sorting leads by hand, so your best buyers wait while you work through the rest. That's deals slipping and hours gone.`
             : `The short version: leads are coming in faster than they can be caught, and the ones that sit go cold. Every missed lead is a commission you already paid to generate.`
         }</p>
-<p>I build a simple system that fixes exactly that. Want me to show you how it'd work for your pipeline? Grab a 15-minute call below.</p>`,
+<p>I build a simple system that fixes exactly that.</p>
+${questionnaire(p)}
+<p style="font-size:14px;color:#57534e">Prefer to just talk it through? Grab a 15-minute call below and I'll show you exactly how the fix works.</p>`,
         p.bookingUrl
       ),
   },
