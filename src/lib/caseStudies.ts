@@ -245,7 +245,93 @@ const eatonSquare: CaseStudy = {
   },
 };
 
-export const caseStudies: CaseStudy[] = [associatedHawaii, eatonSquare];
+const iremHawaii: CaseStudy = {
+  slug: "irem-hawaii-70th",
+  order: 3,
+  industry: "Events",
+  painNav: "Worth showing up for",
+  headline: "Making an anniversary feel worth showing up for",
+  summary:
+    "How we turned a 70-year milestone into a premium event experience — so the night felt important before anyone walked in.",
+  liveUrl: "https://irem-hawaii-70th.vercel.app",
+  liveLabel: "irem-hawaii-70th.vercel.app",
+  screenshot: "/casestudies/irem-hawaii.png",
+  screenshotAlt:
+    "The IREM Hawaii 70th anniversary event page: a premium dark hero reading “70 Years. One Night.”",
+  detail: {
+    title: "Turning a 70-year anniversary into a premium event experience",
+    client: "IREM Hawaii",
+    metaChips: ["Events · Honolulu, HI", "Premium event page", "70th anniversary"],
+    liveLinks: [{ label: "View the live site", url: "https://irem-hawaii-70th.vercel.app" }],
+    heroImage: "/casestudies/irem-hawaii.png",
+    heroAlt:
+      "The IREM Hawaii 70th anniversary event page hero: “70 Years. One Night.” with a countdown and Claim Your Seat / Become a Sponsor actions.",
+    sections: [
+      {
+        kind: "prose",
+        eyebrow: "The problem",
+        body: [
+          "IREM Hawaii needed a page for its 70-year anniversary celebration — but it couldn't feel like a basic event page.",
+          "A 70-year milestone carries history, credibility, leadership, and legacy. The page had to feel worthy of the moment: elevated enough for attendees, members, leaders, and sponsors to take seriously.",
+          "It couldn't read like a flyer, and it couldn't read like a sponsorship ask. It needed to feel like an invitation to an important night in Hawaii real estate.",
+        ],
+        pullQuote: "It couldn't feel like a flyer.",
+      },
+      {
+        kind: "prose",
+        eyebrow: "The strategy",
+        body: [
+          "We positioned the whole event around one idea: 70 years in one night.",
+          "The page needed to feel like an experience before the event even happened — leading with the milestone, the room, the venue, the history, the awards, and the people who would be there.",
+          "Sponsorship was included, but as a premium opportunity to be associated with the milestone — not the main story. That keeps it balanced: attendees feel invited, members feel proud, sponsors feel the value.",
+        ],
+        pullQuote: "70 years in one night.",
+      },
+      {
+        kind: "cards",
+        eyebrow: "What we built",
+        intro:
+          "A premium event page built around two actions — claim your seat, become a sponsor — with the event first and sponsorship supporting it.",
+        items: [
+          { title: "The legacy", desc: "70 years of Hawaii real estate leadership, front and center." },
+          { title: "The night", desc: "The venue, the schedule, and the celebration, made tangible." },
+          { title: "The awards", desc: "The recognition and the people shaping the industry." },
+          { title: "The leadership stage", desc: "A stronger platform to introduce the incoming president and the next era." },
+        ],
+      },
+      {
+        kind: "prose",
+        eyebrow: "Why it matters",
+        body: [
+          "Most event pages only share logistics — date, time, location, register.",
+          "A 70-year anniversary needs more than logistics. It needs weight, atmosphere, and a reason to show up.",
+          "People don't attend on information alone; they attend when the event feels important. The page was built to make the milestone feel real before anyone walked into the room.",
+        ],
+        pullQuote: "People attend when the event feels important.",
+      },
+      {
+        kind: "list",
+        eyebrow: "The bigger plan",
+        intro: "The page is the anniversary's digital home, ready to support:",
+        items: [
+          "Event registration and sponsor inquiries",
+          "The incoming president's introduction",
+          "Member announcements and awards promotion",
+          "Email campaigns and partner outreach",
+          "Social sharing and event reminders",
+          "Post-event recap content",
+        ],
+      },
+      {
+        kind: "quote",
+        eyebrow: "The result",
+        quote: "Not just another dinner — 70 years of Hawaii real estate leadership in one night.",
+      },
+    ],
+  },
+};
+
+export const caseStudies: CaseStudy[] = [associatedHawaii, eatonSquare, iremHawaii];
 
 export function getCaseStudy(slug: string): CaseStudy | undefined {
   return caseStudies.find((c) => c.slug === slug);

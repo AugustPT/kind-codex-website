@@ -23,6 +23,9 @@ export default function LogoWall() {
         <div className="flex h-20 w-56 items-center justify-center rounded-xl border border-stone-200 bg-white px-8">
           <span className="font-serif text-2xl font-bold tracking-tight text-stone-500">Eaton Square</span>
         </div>
+        <div className="flex h-20 w-56 items-center justify-center rounded-xl border border-stone-200 bg-white px-8 text-center">
+          <span className="font-serif text-2xl font-bold tracking-tight text-stone-500">IREM Hawaii</span>
+        </div>
       </div>
     </div>
   );
