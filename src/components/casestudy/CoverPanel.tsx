@@ -1,0 +1,26 @@
+import LogoWall from "./LogoWall";
+
+// Panel 00 — proof first. Logos before any reading, then swipe into the work.
+export default function CoverPanel() {
+  return (
+    <div className="flex h-full w-full flex-col items-center justify-center px-6 pt-24 pb-20 text-center">
+      <span className="mb-5 inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#c2410c]">
+        <span className="h-1.5 w-1.5 rounded-full bg-[#c2410c]" />
+        Case studies
+      </span>
+      <h1 className="max-w-xl font-serif text-4xl leading-[1.08] tracking-tight text-stone-900 sm:text-5xl md:text-6xl">
+        Real builds for real businesses.
+      </h1>
+      <p className="mt-5 max-w-md text-base font-medium leading-relaxed text-stone-600">
+        Not templates. Systems built from the ground up to solve a specific problem — here&apos;s the proof.
+      </p>
+      <div className="mt-10 flex justify-center">
+        <LogoWall />
+      </div>
+      <div className="mt-10 flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-stone-400">
+        <span className="animate-bounce text-[#c2410c]">↓</span>
+        Swipe to explore the work
+      </div>
+    </div>
+  );
+}
