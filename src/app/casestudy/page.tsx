@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import CaseStudyDeck from "@/components/casestudy/CaseStudyDeck";
-import { caseStudies } from "@/lib/caseStudies";
+import { visibleCaseStudies } from "@/lib/caseStudies";
 
 export const metadata: Metadata = {
   title: "Case Studies | KindCodex",
@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function CaseStudyPage() {
-  return <CaseStudyDeck studies={caseStudies} />;
+  return <CaseStudyDeck studies={visibleCaseStudies} />;
 }

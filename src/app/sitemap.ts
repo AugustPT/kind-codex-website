@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { caseStudies } from "@/lib/caseStudies";
+import { visibleCaseStudies } from "@/lib/caseStudies";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://kindcodex.com";
@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
-    ...caseStudies.map((c) => ({
+    ...visibleCaseStudies.map((c) => ({
       url: `${baseUrl}/casestudy/${c.slug}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,

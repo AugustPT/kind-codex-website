@@ -1,9 +1,11 @@
 import Image from "next/image";
+import Secret808 from "./Secret808";
 
 // Trust-first logo wall. AREA ships a real wordmark logo; Eaton Square's brand
 // is a text wordmark on its own site, so we render it the same way. Kept
 // uniform + desaturated for an agency-grade "trusted by" feel. New studies add
 // a card here (real logo asset, or a text wordmark).
+// Note: the "808" in the Tlacuaches card is a hidden trigger — see Secret808.
 export default function LogoWall() {
   return (
     <div className="flex flex-col items-center">
@@ -27,7 +29,9 @@ export default function LogoWall() {
           <span className="font-serif text-2xl font-bold tracking-tight text-stone-500">IREM Hawaii</span>
         </div>
         <div className="flex h-20 w-56 items-center justify-center rounded-xl border border-stone-200 bg-white px-8 text-center">
-          <span className="font-serif text-2xl font-bold tracking-tight text-stone-500">Tlacuaches 808</span>
+          <span className="font-serif text-2xl font-bold tracking-tight text-stone-500">
+            Tlacuaches <Secret808>808</Secret808>
+          </span>
         </div>
         <div className="flex h-20 w-56 flex-col items-center justify-center rounded-xl border border-stone-200 bg-white px-6 text-center">
           <span className="font-serif text-xl font-bold leading-none tracking-tight text-stone-500">Aloha</span>

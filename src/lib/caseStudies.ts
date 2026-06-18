@@ -30,6 +30,9 @@ export interface CaseStudy {
   liveLabel: string;
   screenshot: string;
   screenshotAlt: string;
+  /** Hidden "extra" — its detail page still builds and is reachable directly
+   *  (e.g. via an easter egg), but it never appears in the deck or sitemap. */
+  hidden?: boolean;
   detail: CaseStudyDetail;
 }
 
@@ -523,13 +526,136 @@ const alohaPropertyManagers: CaseStudy = {
   },
 };
 
+const prysmIO: CaseStudy = {
+  slug: "prysm-io",
+  order: 6,
+  // Hidden extra — surfaced only via the easter egg on the case-study deck
+  // (triple-click the Tlacuaches "808"). Never rendered in the deck or sitemap.
+  hidden: true,
+  industry: "Sales enablement",
+  painNav: "Never guessing what to say",
+  headline: "Turning a 100-question intake into a live sales conversation",
+  summary:
+    "How we turned a 100-question health intake into a scanner-first cue-card system — so a presenter runs a 15-minute wellness conversation without guessing what to say.",
+  liveUrl: "https://prysm-app.vercel.app",
+  liveLabel: "prysm-app.vercel.app",
+  screenshot: "/casestudies/prysm-io.png",
+  screenshotAlt:
+    "The PRYSM iO sales-enablement app: the Builder setup on the left and a live, audience-specific conversation script on the right.",
+  detail: {
+    title: "Turning a 100-question health intake into a scanner-first sales tool",
+    client: "PRYSM iO",
+    metaChips: ["Sales enablement · Wellness", "Scanner-first cue cards", "Compliance guardrails"],
+    liveLinks: [{ label: "View the live site", url: "https://prysm-app.vercel.app" }],
+    heroImage: "/casestudies/prysm-io.png",
+    heroAlt:
+      "The PRYSM iO Builder: a presenter picks the audience (Gym / Trainer) and goals on the left while the right panel builds a live talk track — an opening line and goal-based questions — in real time.",
+    sections: [
+      {
+        kind: "prose",
+        eyebrow: "The problem",
+        body: [
+          "Alan's company had a long health intake — around 100 questions. It could collect information, but it was almost impossible to use in a live sales conversation.",
+          "It was too long. It created friction. It made the presenter work too hard, and it could overwhelm the person being assessed before they understood why the conversation even mattered.",
+          "The real problem was never the information. It was how to turn that information into a simple, useful, in-person conversation.",
+        ],
+        pullQuote: "The problem was never the information. It was the conversation.",
+      },
+      {
+        kind: "prose",
+        eyebrow: "The strategy",
+        body: [
+          "We repositioned the intake from a long quiz into a scanner-first conversation tool.",
+          "Instead of asking someone to sit through a large assessment, the system starts with the moment that creates curiosity — the scan. From there, the app connects the scan result to the person in front of the presenter, their goals, and the next best conversation path.",
+          "Use the scan to open attention, then use cue cards to guide a clear, compliant, personalized conversation. That turns a long intake into a fast sales-enablement system.",
+        ],
+        pullQuote: "Use the scan to open attention. Use cue cards to carry the conversation.",
+      },
+      {
+        kind: "cards",
+        eyebrow: "What we built",
+        intro:
+          "PRYSM iO — a sales-enablement app that turns a 15-second scan into a guided 15-to-20-minute wellness conversation, adapting to whoever is in the room.",
+        items: [
+          { title: "The Builder", desc: "Set who's presenting, the audience, the scan color, and the client's goals — the live talk track updates as you choose." },
+          { title: "The Script", desc: "A five-part cue-card flow so the presenter never freezes, overexplains, or makes a claim they shouldn't." },
+          { title: "The AI Prompt", desc: "A ready-made prompt that spins the setup into follow-ups, rescan messages, and client summaries." },
+          { title: "The Guardrails", desc: "A compliance layer showing the safe language to use and the claims to avoid." },
+          { title: "The Tests", desc: "Logic checks that confirm each audience has the right questions, paths, and product fit." },
+        ],
+      },
+      {
+        kind: "steps",
+        eyebrow: "The talk track",
+        intro: "The Script turns the setup into a simple five-part flow the presenter can read, practice, or run live:",
+        items: [
+          "Frame the conversation",
+          "Run the scan",
+          "Explain the score, simply",
+          "Ask goal-based questions",
+          "Offer the 30-day rescan next step",
+        ],
+      },
+      {
+        kind: "list",
+        eyebrow: "One app, every audience",
+        intro:
+          "A gym trainer shouldn't hear the same framing as a parent. The app rewrites the opening line, the questions, the product fit, and the next step for whoever is in the room:",
+        items: [
+          "Gym trainers and athletes",
+          "Parents and schools",
+          "Business owners and BNI members",
+          "Salons, spas, and wellness studios",
+          "Eye, dental, chiro, and clinic teams",
+          "Health stores and restaurants",
+          "Scanner business candidates",
+        ],
+      },
+      {
+        kind: "prose",
+        eyebrow: "Why it matters",
+        body: [
+          "Most sales tools fail in one of two ways: they dump too much information, or they leave the salesperson to figure it out alone.",
+          "PRYSM iO solves the middle problem. The scan creates attention, the Builder personalizes the context, the Script gives the talk track, the AI Prompt extends the follow-up, the Guardrails keep the language safe, and the Tests make sure the logic actually works.",
+          "That last part matters more than it looks. The app isn't only helping the presenter sell — it's helping them communicate safely, with language that stays away from diagnosis, deficiency, or treatment claims.",
+        ],
+        pullQuote: "It doesn't just help them sell. It helps them communicate safely.",
+      },
+      {
+        kind: "list",
+        eyebrow: "The bigger plan",
+        intro: "PRYSM iO is the first step in a larger scanner-based sales pipeline that can expand into:",
+        items: [
+          "Lead tracking and scan history",
+          "Manager and presenter dashboards",
+          "Follow-up reminders and 30-day rescan workflows",
+          "Product recommendation tracking",
+          "Team performance reports and event demo workflows",
+          "Compliance-approved message templates",
+          "CRM integration",
+        ],
+      },
+      {
+        kind: "quote",
+        eyebrow: "The result",
+        quote:
+          "The goal was never just to run a scan. It was to turn every scan into a better conversation, a clearer next step, and a pipeline a manager can actually see.",
+      },
+    ],
+  },
+};
+
 export const caseStudies: CaseStudy[] = [
   associatedHawaii,
   eatonSquare,
   iremHawaii,
   tlacuaches808,
   alohaPropertyManagers,
+  prysmIO,
 ];
+
+// What the public deck and sitemap render — hidden extras are excluded.
+export const visibleCaseStudies: CaseStudy[] = caseStudies.filter((c) => !c.hidden);
 
 export function getCaseStudy(slug: string): CaseStudy | undefined {
   return caseStudies.find((c) => c.slug === slug);

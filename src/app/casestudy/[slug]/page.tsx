@@ -20,6 +20,8 @@ export async function generateMetadata({
   return {
     title: `${study.detail.title} | KindCodex Case Study`,
     description: study.summary,
+    // Hidden extras stay out of search engines — reachable only by direct link.
+    ...(study.hidden ? { robots: { index: false, follow: false } } : {}),
   };
 }
 
