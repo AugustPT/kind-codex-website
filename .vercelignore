@@ -3,4 +3,5 @@ KindCodex Build/
 scratch/
 dist/
 *.png
+!public/casestudies/**
 dev.log
