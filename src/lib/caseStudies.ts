@@ -427,7 +427,109 @@ const tlacuaches808: CaseStudy = {
   },
 };
 
-export const caseStudies: CaseStudy[] = [associatedHawaii, eatonSquare, iremHawaii, tlacuaches808];
+const alohaPropertyManagers: CaseStudy = {
+  slug: "aloha-property-managers",
+  order: 5,
+  industry: "Property management",
+  painNav: "Trust, shown not told",
+  headline: "Turning a skeptical owner into a confident client",
+  summary:
+    "How we built an owner-trust funnel that shows remote property owners the operation working — so they trust before they ever call.",
+  liveUrl: "https://aloha-property-managers.vercel.app",
+  liveLabel: "aloha-property-managers.vercel.app",
+  screenshot: "/casestudies/aloha-property-managers.png",
+  screenshotAlt: "The Aloha Property Managers owner-conversion site for Hawaii rental owners.",
+  detail: {
+    title: "Turning property management into a trust-building owner funnel",
+    client: "Aloha Property Managers",
+    metaChips: ["Property management · Hawaiʻi", "Owner-trust funnel", "Multilingual (EN · JA · ZH)"],
+    liveLinks: [{ label: "View the live site", url: "https://aloha-property-managers.vercel.app" }],
+    heroImage: "/casestudies/aloha-property-managers.png",
+    heroAlt: "The Aloha Property Managers owner-conversion site for Hawaii rental owners.",
+    sections: [
+      {
+        kind: "prose",
+        eyebrow: "The problem",
+        body: [
+          "Aloha Property Managers needed more than a standard property management website. The real problem was trust.",
+          "Hawaii owners — especially remote ones — don't just want someone to “manage” their rental. They want to know the property is protected, guests are handled, and cleanings, maintenance, pricing, and emergencies aren't falling through the cracks.",
+          "Most management sites say they offer services. They don't show the owner what life looks like before and after management. That was the gap.",
+        ],
+        pullQuote: "The real problem was trust.",
+      },
+      {
+        kind: "prose",
+        eyebrow: "The strategy",
+        body: [
+          "We built the page as a system to turn a skeptical owner into a confident client before they ever pick up the phone.",
+          "Instead of generic claims, the page makes the service visible: the owner can see the numbers, the process, and what happens when something goes wrong — how a property moves from stress to managed performance.",
+          "That's the difference between telling someone they can trust you and showing them why they should.",
+        ],
+        pullQuote: "Don't tell owners they can trust you. Show them why they should.",
+      },
+      {
+        kind: "cards",
+        eyebrow: "What we built",
+        intro: "A premium owner-conversion system that makes the operation feel active, not abstract.",
+        items: [
+          { title: "One site, three languages", desc: "English, Japanese, and Chinese in one experience — trust starts earlier." },
+          { title: "A yield calculator", desc: "A number tied to their actual property turns browsing into deciding." },
+          { title: "Island performance dashboard", desc: "Real occupancy, revenue, and ratings by island — not vague promises." },
+          { title: "A live operations view", desc: "Watch bookings confirm, guests get answered, and a team dispatch when something goes wrong." },
+        ],
+      },
+      {
+        kind: "list",
+        eyebrow: "Why it matters",
+        intro: "A remote owner is deciding who to trust with an expensive asset they rarely see. The before-and-after names the exact pains they already feel:",
+        items: [
+          "Too many messages",
+          "Unclear pricing",
+          "Guest issues",
+          "Maintenance problems",
+          "Cleaner coordination",
+          "Missed opportunities",
+        ],
+      },
+      {
+        kind: "prose",
+        eyebrow: "The guided intake",
+        body: [
+          "The contact form wasn't treated like a basic form — it's a guided intake. The visitor moves through a process that pre-qualifies the lead and makes the owner feel understood, with a personalized estimate at the end.",
+          "Even the terms and conditions were written so a lawyer and a first-time visitor could both understand them — clarity that builds trust in a place most people overlook.",
+        ],
+        pullQuote: "Property management isn't only about revenue. It's about response.",
+      },
+      {
+        kind: "list",
+        eyebrow: "The bigger plan",
+        intro: "The page is the first step in a stronger owner-acquisition system that can expand into:",
+        items: [
+          "Property yield quote requests and owner qualification forms",
+          "Neighborhood-specific landing pages",
+          "Airbnb, VRBO, and luxury rental management pages",
+          "Multilingual owner paths and automated follow-up",
+          "Owner reports and property review scheduling",
+          "Seasonal pricing and local service-area content",
+        ],
+      },
+      {
+        kind: "quote",
+        eyebrow: "The result",
+        quote:
+          "Owners don't only want more bookings — they want fewer problems, local eyes on the property, and a team that responds when they're not there.",
+      },
+    ],
+  },
+};
+
+export const caseStudies: CaseStudy[] = [
+  associatedHawaii,
+  eatonSquare,
+  iremHawaii,
+  tlacuaches808,
+  alohaPropertyManagers,
+];
 
 export function getCaseStudy(slug: string): CaseStudy | undefined {
   return caseStudies.find((c) => c.slug === slug);

@@ -27,8 +27,8 @@ export default function DeckNav({ studies, activeIndex, goTo }: DeckNavProps) {
           KindCodex<span className="text-[#c2410c]">.</span>
         </Link>
 
-        {/* Desktop tabs */}
-        <div className="hidden items-stretch md:flex">
+        {/* Desktop tabs (scroll horizontally once there are many) */}
+        <div className="hidden max-w-[64%] items-stretch overflow-x-auto md:flex [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {studies.map((study, i) => {
             const panelIndex = i + 1;
             const active = activeIndex === panelIndex;
@@ -37,7 +37,7 @@ export default function DeckNav({ studies, activeIndex, goTo }: DeckNavProps) {
                 key={study.slug}
                 onClick={() => jump(panelIndex)}
                 aria-current={active ? "true" : undefined}
-                className={`flex flex-col gap-0.5 border-l border-stone-200 px-4 py-1 text-left transition-colors ${
+                className={`flex shrink-0 flex-col gap-0.5 whitespace-nowrap border-l border-stone-200 px-4 py-1 text-left transition-colors ${
                   active ? "border-b-2 border-b-[#c2410c]" : ""
                 }`}
               >

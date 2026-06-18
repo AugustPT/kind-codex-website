@@ -29,6 +29,10 @@ export default function LogoWall() {
         <div className="flex h-20 w-56 items-center justify-center rounded-xl border border-stone-200 bg-white px-8 text-center">
           <span className="font-serif text-2xl font-bold tracking-tight text-stone-500">Tlacuaches 808</span>
         </div>
+        <div className="flex h-20 w-56 flex-col items-center justify-center rounded-xl border border-stone-200 bg-white px-6 text-center">
+          <span className="font-serif text-xl font-bold leading-none tracking-tight text-stone-500">Aloha</span>
+          <span className="mt-1 text-[9px] font-bold uppercase tracking-[0.15em] text-stone-400">Property Managers</span>
+        </div>
       </div>
     </div>
   );
