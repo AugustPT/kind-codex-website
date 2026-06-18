@@ -331,7 +331,103 @@ const iremHawaii: CaseStudy = {
   },
 };
 
-export const caseStudies: CaseStudy[] = [associatedHawaii, eatonSquare, iremHawaii];
+const tlacuaches808: CaseStudy = {
+  slug: "tlacuaches-808",
+  order: 4,
+  industry: "Restaurant",
+  painNav: "From craving to checkout",
+  headline: "Turning a craving into a completed order",
+  summary:
+    "How we built a one-page ordering path for a tucked-away restaurant — so a craving turns into checkout without the friction.",
+  liveUrl: "https://tlacuaches808.vercel.app",
+  liveLabel: "tlacuaches808.vercel.app",
+  screenshot: "/casestudies/tlacuaches-808.png",
+  screenshotAlt:
+    "The Tlacuaches 808 ordering site: a bold hero reading “Mexican street food with island-sized portions” beside a birria tacos photo.",
+  detail: {
+    title: "Turning restaurant interest into actual orders",
+    client: "Tlacuaches 808",
+    metaChips: ["Restaurant · Eaton Square, Waikīkī", "One-page ordering", "Conversion funnel"],
+    liveLinks: [{ label: "View the live site", url: "https://tlacuaches808.vercel.app" }],
+    heroImage: "/casestudies/tlacuaches-808.png",
+    heroAlt:
+      "The Tlacuaches 808 one-page ordering site hero: “Mexican street food with island-sized portions” beside a birria tacos photo.",
+    sections: [
+      {
+        kind: "prose",
+        eyebrow: "The problem",
+        body: [
+          "Tlacuaches 808 had a common restaurant problem: people could be interested in the food but still not make it to the order.",
+          "Most restaurant sites overwhelm with too many choices, too many clicks, too much friction. And this one is tucked inside Eaton Square — easy to miss if you don't already know where you're going.",
+          "So a hungry customer is left asking: what do they serve, what should I order, where exactly is it, are they open, how do I order, how long will it take?",
+        ],
+        pullQuote: "Every unanswered question is a chance for the customer to leave.",
+      },
+      {
+        kind: "prose",
+        eyebrow: "The strategy",
+        body: [
+          "We designed the page around one goal: keep the customer moving toward the order.",
+          "It guides someone from interest to action without making them think — explain the food simply, confirm the craving with strong photography, solve the location problem, and keep the menu and ordering on the same page so they never have to jump around.",
+          "The strategy wasn't to show everything. It was to remove friction.",
+        ],
+        pullQuote: "The strategy wasn't to show everything. It was to remove friction.",
+      },
+      {
+        kind: "cards",
+        eyebrow: "What we built",
+        intro: "A one-page ordering experience that takes the customer from craving to checkout without leaving the page.",
+        items: [
+          { title: "A clear food promise", desc: "“Mexican street food with island-sized portions.”" },
+          { title: "Hero on the signature dish", desc: "Birria tacos with consommé for dipping — an instant reason to care." },
+          { title: "Menu built into the page", desc: "Items, prices, and add-to-cart, no jumping around." },
+          { title: "Checkout with a pickup window", desc: "A 20–25 min estimate that cuts “is it ready yet?” calls." },
+        ],
+      },
+      {
+        kind: "steps",
+        eyebrow: "Solving the location problem",
+        intro:
+          "Tucked inside Eaton Square at 438 Hobron Lane, Unit 115. Alongside the address, hours, and an open-map link, the page walks customers to the counter:",
+        items: [
+          "Start at the Eaton Square entrance",
+          "Follow the courtyard walkway",
+          "Arrive at the counter",
+        ],
+      },
+      {
+        kind: "prose",
+        eyebrow: "Why it matters",
+        body: [
+          "A restaurant website has one job: turn hunger into action.",
+          "If the customer has to search, think, call, or guess too much, the order is at risk. This build removes those small points of friction — helping them understand the food, find the restaurant, and order quickly.",
+          "It also saves the owner from answering the same questions about menu, location, hours, and pickup timing all day.",
+        ],
+        pullQuote: "A restaurant website has one job: turn hunger into action.",
+      },
+      {
+        kind: "list",
+        eyebrow: "The bigger plan",
+        intro: "The page is the first step in a cleaner ordering system that can expand into:",
+        items: [
+          "Live online ordering with kitchen notifications",
+          "Pickup estimates and menu updates",
+          "Daily specials and delivery options",
+          "Customer text updates and repeat-customer offers",
+          "QR codes from nearby hotels",
+          "Google Business and social traffic paths",
+        ],
+      },
+      {
+        kind: "quote",
+        eyebrow: "The result",
+        quote: "People shouldn't have to work hard to order good food. They should see it, crave it, find it, order it.",
+      },
+    ],
+  },
+};
+
+export const caseStudies: CaseStudy[] = [associatedHawaii, eatonSquare, iremHawaii, tlacuaches808];
 
 export function getCaseStudy(slug: string): CaseStudy | undefined {
   return caseStudies.find((c) => c.slug === slug);
