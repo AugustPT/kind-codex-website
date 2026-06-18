@@ -40,14 +40,21 @@ export default function CaseStudyPanel({ study, priority = false }: CaseStudyPan
           </div>
         </div>
 
-        <div className="order-first lg:order-none">
+        <a
+          href={study.liveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Open the live ${study.liveLabel} site in a new tab`}
+          className="group order-first block lg:order-none"
+        >
           <BrowserFrame
             src={study.screenshot}
             alt={study.screenshotAlt}
             label={study.liveLabel}
             priority={priority}
+            className="cursor-pointer transition duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_18px_50px_rgba(28,25,23,0.16)]"
           />
-        </div>
+        </a>
       </div>
     </div>
   );
