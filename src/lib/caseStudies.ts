@@ -537,7 +537,7 @@ const prysmIO: CaseStudy = {
   painNav: "Your pitch loses people",
   headline: "When your pitch is too complicated to sell",
   summary:
-    "A sales team's pitch opened with a 100-question intake — so long it overwhelmed people before the conversation even mattered, and reps froze instead of selling. We turned it into a scanner-first app that walks anyone through a confident 15-minute conversation. The same overload quietly costs the sale in any business that has to explain something complex.",
+    "A sales team's pitch opened with a 100-question intake that dragged on for the better part of an hour — so long it overwhelmed people before the conversation even mattered, and reps froze instead of selling. We turned it into a scanner-first app that walks anyone through a confident 15-minute conversation. The same overload quietly costs the sale in any business that has to explain something complex.",
   liveUrl: "https://prysm-app.vercel.app",
   liveLabel: "prysm-app.vercel.app",
   screenshot: "/casestudies/prysm-io.png",
