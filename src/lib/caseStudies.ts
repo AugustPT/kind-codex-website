@@ -530,20 +530,21 @@ const prysmIO: CaseStudy = {
   slug: "prysm-io",
   order: 6,
   // Hidden extra — surfaced only via the easter egg on the case-study deck
-  // (triple-click the Tlacuaches "808"). Never rendered in the deck or sitemap.
+  // (triple-click the "Real builds for real businesses" headline). Never
+  // rendered in the deck or sitemap.
   hidden: true,
   industry: "Sales enablement",
-  painNav: "Never guessing what to say",
-  headline: "Turning a 100-question intake into a live sales conversation",
+  painNav: "Your pitch loses people",
+  headline: "When your pitch is too complicated to sell",
   summary:
-    "How we turned a 100-question health intake into a scanner-first cue-card system — so a presenter runs a 15-minute wellness conversation without guessing what to say.",
+    "A sales team's pitch opened with a 100-question intake — so long it overwhelmed people before the conversation even mattered, and reps froze instead of selling. We turned it into a scanner-first app that walks anyone through a confident 15-minute conversation. The same overload quietly costs the sale in any business that has to explain something complex.",
   liveUrl: "https://prysm-app.vercel.app",
   liveLabel: "prysm-app.vercel.app",
   screenshot: "/casestudies/prysm-io.png",
   screenshotAlt:
     "The PRYSM iO sales-enablement app: the Builder setup on the left and a live, audience-specific conversation script on the right.",
   detail: {
-    title: "Turning a 100-question health intake into a scanner-first sales tool",
+    title: "How a sales team turned a 100-question intake into a 15-minute conversation",
     client: "PRYSM iO",
     metaChips: ["Sales enablement · Wellness", "Scanner-first cue cards", "Compliance guardrails"],
     liveLinks: [{ label: "View the live site", url: "https://prysm-app.vercel.app" }],
