@@ -3,14 +3,16 @@
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
 
-// Hidden easter egg: triple-click the Tlacuaches "808" (three clicks in a row,
-// within ~1.5s of each other) to open the unlisted PRYSM iO case study. Looks
-// and reads as plain text — no visible hint that it's interactive.
+// Hidden easter egg: triple-click the cover headline ("Real builds for real
+// businesses.") — three clicks within ~1.5s of each other — to open the
+// unlisted PRYSM iO case study. Renders as plain text with no visible hint
+// that it's interactive. (Lives on the headline, not the "808", because the
+// logo cards are now single-click shortcuts to their own case studies.)
 const SLUG = "prysm-io";
 const WINDOW_MS = 1500;
 const NEEDED = 3;
 
-export default function Secret808({
+export default function SecretTrigger({
   children,
   className = "",
 }: {

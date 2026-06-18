@@ -83,7 +83,7 @@ export default function CaseStudyDeck({ studies }: { studies: CaseStudy[] }) {
   }, [goTo, panelCount]);
 
   const panels = [
-    { node: <CoverPanel />, label: "Introduction" },
+    { node: <CoverPanel studies={studies} goTo={goTo} />, label: "Introduction" },
     ...studies.map((study, i) => ({
       node: <CaseStudyPanel study={study} priority={i === 0} />,
       label: `Case study ${i + 1}: ${study.headline}`,
