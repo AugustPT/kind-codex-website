@@ -21,8 +21,9 @@ export default function CoverPanel({
       <h1 className="max-w-xl font-serif text-4xl leading-[1.08] tracking-tight text-stone-900 sm:text-5xl md:text-6xl">
         <SecretTrigger>Real builds for real businesses.</SecretTrigger>
       </h1>
-      <p className="mt-5 max-w-md text-base font-medium leading-relaxed text-stone-600">
-        Not templates. Systems built from the ground up to solve a specific problem — here&apos;s the proof.
+      <p className="mt-5 max-w-lg text-base font-medium leading-relaxed text-stone-600">
+        Websites and follow-up systems for local business owners losing customers — to a site people can&apos;t find,
+        don&apos;t trust, or click through and leave without calling. Different industries, same fixes — here&apos;s the proof.
       </p>
       <div className="mt-10 flex justify-center">
         <LogoWall studies={studies} goTo={goTo} />

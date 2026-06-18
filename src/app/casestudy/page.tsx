@@ -5,7 +5,7 @@ import { visibleCaseStudies } from "@/lib/caseStudies";
 export const metadata: Metadata = {
   title: "Case Studies | KindCodex",
   description:
-    "Real builds for real businesses — systems built from first principles to solve a specific problem, not just pretty websites.",
+    "See how we fixed websites that customers couldn't find, didn't trust, or left without calling — for local businesses across very different industries. Real problems, real builds, real fixes.",
 };
 
 export default function CaseStudyPage() {
