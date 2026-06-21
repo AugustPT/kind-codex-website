@@ -1,0 +1,24 @@
+name: Daily outreach send
+
+# Fires the KindCodex cold-outreach send from GitHub's cloud — NOT August's laptop.
+# 19:00 UTC = 9:00am HST, daily. Safe to run alongside the Vercel cron / any retry:
+# the endpoint has a per-HST-day idempotency cap, so it sends at most 10/day total.
+
+on:
+  schedule:
+    - cron: "0 19 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger outreach send endpoint
+        run: |
+          resp=$(curl -sS -w "\n%{http_code}" -X GET "https://kindcodex.com/api/outreach/send" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}")
+          code=$(printf '%s' "$resp" | tail -n1)
+          body=$(printf '%s' "$resp" | sed '$d')
+          echo "HTTP $code"
+          echo "$body"
+          test "$code" -ge 200 -a "$code" -lt 300
