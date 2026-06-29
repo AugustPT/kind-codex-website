@@ -1,6 +1,7 @@
 {
   "framework": "nextjs",
   "crons": [
-    { "path": "/api/nurture/cron", "schedule": "0 17 * * *" }
+    { "path": "/api/nurture/cron", "schedule": "0 17 * * *" },
+    { "path": "/api/outreach/send", "schedule": "0 19 * * *" }
   ]
 }

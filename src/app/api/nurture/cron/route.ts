@@ -5,6 +5,7 @@ import {
   updateLead,
 } from "@/lib/brevo";
 import { NURTURE_SEQUENCE, MAX_STAGE } from "@/lib/nurtureSequence";
+import { gmailSync } from "@/lib/gmailSync";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
@@ -75,11 +76,21 @@ export async function GET(request: Request) {
     }
   }
 
+  // Auto-advance outbound prospects by scanning Gmail (Sent -> "sent",
+  // Inbox -> "replied") so the admin panel stays current with zero manual work.
+  let gmail = { sent: 0, replied: 0, mapped: 0, scanned: 0, errors: [] as string[] };
+  try {
+    gmail = await gmailSync();
+  } catch (e) {
+    gmail.errors.push((e as Error).message);
+  }
+
   return NextResponse.json({
     ok: true,
     processed: contacts.length,
     sent,
     skipped,
     errors: errors.slice(0, 20),
+    gmail,
   });
 }

@@ -42,6 +42,11 @@ export interface LeadAttributes {
   CONTACT_URL?: string;
   DRAFTED_AT?: string;
   REF?: string; // who/what brought this lead in (e.g., "jared")
+  // Outreach automation fields (written by the send engine + gmailSync)
+  CONTACT_EMAIL?: string; // the prospect's real reply-to address
+  OUTREACH_STEP?: number; // which touch # they're on (1 = first email)
+  OUTREACH_LAST_SENT?: string; // ISO timestamp of the last email we sent them
+  REPLY_HANDLED?: boolean; // a human has dealt with their reply
 }
 
 // Create or update a contact and (optionally) add to the nurture list.
@@ -63,13 +68,22 @@ export async function upsertLead(
   }).catch(() => {});
 }
 
-export async function updateLead(email: string, attributes: LeadAttributes): Promise<void> {
-  if (!hasBrevo()) return;
-  await fetch(`${BASE}/contacts/${encodeURIComponent(email)}`, {
-    method: "PUT",
-    headers: headers(),
-    body: JSON.stringify({ attributes }),
-  }).catch(() => {});
+// Returns true only if Brevo confirmed the write. The send engine relies on this:
+// a swallowed failure would leave a prospect looking un-sent and get them re-emailed.
+// UPSERT (POST + updateEnabled) so it create-or-updates — a queue lead that was never
+// pre-ingested as a contact still records correctly instead of 404-ing and re-sending.
+export async function updateLead(email: string, attributes: LeadAttributes): Promise<boolean> {
+  if (!hasBrevo()) return false;
+  try {
+    const res = await fetch(`${BASE}/contacts`, {
+      method: "POST",
+      headers: headers(),
+      body: JSON.stringify({ email, attributes, updateEnabled: true }),
+    });
+    return res.ok;
+  } catch {
+    return false;
+  }
 }
 
 export interface SendResult {
@@ -83,6 +97,7 @@ export async function sendEmail(params: {
   toName?: string;
   subject: string;
   html: string;
+  text?: string;
   replyTo?: string;
 }): Promise<SendResult> {
   if (!hasBrevo()) return { ok: true, status: "skipped", detail: "No BREVO_API_KEY" };
@@ -96,6 +111,7 @@ export async function sendEmail(params: {
         replyTo: params.replyTo ? { email: params.replyTo } : undefined,
         subject: params.subject,
         htmlContent: params.html,
+        textContent: params.text || undefined,
       }),
     });
     if (!res.ok) {

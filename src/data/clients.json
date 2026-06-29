@@ -1,0 +1,12 @@
+[
+  {
+    "id": "sample",
+    "agentName": "Anne Oliver",
+    "brokerage": "Coldwell Banker",
+    "area": "Diamond Head / Kahala, Oahu",
+    "alertEmail": "nvleo4what@gmail.com",
+    "replyToEmail": "nvleo4what@gmail.com",
+    "enabled": true,
+    "createdAt": "2026-06-20"
+  }
+]

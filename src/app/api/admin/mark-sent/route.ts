@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAllContacts, updateLead } from "@/lib/brevo";
+import { getAllContacts, updateLead, type LeadAttributes } from "@/lib/brevo";
 
 export const dynamic = "force-dynamic";
 
@@ -38,6 +38,14 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true, matched: true, changed: false, stage: current });
   }
 
-  await updateLead(match.email, { STAGE: newStage } as any);
+  // Parity with the send engine + gmailSync: a "sent" promotion must also stamp the
+  // activity fields, or the record gets STAGE=sent with step 0 (re-cold-emailed) and no
+  // last-sent date (invisible to the dashboard).
+  const patch: LeadAttributes = { STAGE: newStage };
+  if (newStage === "sent") {
+    patch.OUTREACH_STEP = Math.max(Number(match.attributes?.OUTREACH_STEP || 0), 1);
+    patch.OUTREACH_LAST_SENT = new Date().toISOString();
+  }
+  await updateLead(match.email, patch);
   return NextResponse.json({ ok: true, matched: true, changed: true, stage: newStage });
 }
