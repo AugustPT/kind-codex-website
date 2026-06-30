@@ -93,7 +93,7 @@ export async function gmailSync(): Promise<{
 
   // Map prospect CONTACT_EMAIL -> { brevo key, current stage, booked }
   const contacts = await getAllContacts();
-  const byEmail = new Map<string, { key: string; name: string; stage: string; step: number; booked: boolean }>();
+  const byEmail = new Map<string, { key: string; name: string; stage: string; step: number; booked: boolean; replyHandled: boolean }>();
   for (const c of contacts) {
     const a = c.attributes || {};
     const ce = String(a.CONTACT_EMAIL || "").trim().toLowerCase();
@@ -104,6 +104,7 @@ export async function gmailSync(): Promise<{
         stage: String(a.STAGE || "drafted").toLowerCase(),
         step: Number(a.OUTREACH_STEP || 0),
         booked: a.BOOKED === true,
+        replyHandled: a.REPLY_HANDLED === true || String(a.REPLY_HANDLED) === "true",
       });
     }
   }
@@ -169,12 +170,16 @@ export async function gmailSync(): Promise<{
               }
               continue;
             }
-            // Grade request ("SCORE") → auto-send the free Grader link and stop the cold sequence.
+            // Grade request ("SCORE") → auto-send the free Grader link ONCE, then stop the cold
+            // sequence. Guard on REPLY_HANDLED (not just dead/won) so a reply that lingers in the
+            // 21-day inbox window doesn't re-trigger the send on every twice-daily sync (the bug
+            // that was firing the same email repeatedly).
             if (intent === "grade") {
-              if (p.stage !== "dead" && p.stage !== "won") {
+              if (!p.replyHandled && p.stage !== "dead" && p.stage !== "won") {
                 try { await sendGradeLink(e, p.name); } catch { /* non-fatal */ }
                 await updateLead(p.key, { STAGE: "replied", REPLY_HANDLED: true } as LeadAttributes);
                 p.stage = "replied";
+                p.replyHandled = true;
                 out.gradeLinks++;
               }
               continue;
