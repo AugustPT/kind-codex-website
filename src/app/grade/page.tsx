@@ -76,15 +76,15 @@ export default function GradePage() {
               How fast do you reply to a new lead<span style={{ color: terra }}>?</span>
             </h1>
             <p style={{ color: muted, fontSize: 17, lineHeight: 1.55, margin: "0 0 8px", maxWidth: 540 }}>
-              We&apos;ll send a sample buyer inquiry to your inbox. Reply to it like you would any real lead, and you&apos;ll
+              We&apos;ll send a sample customer inquiry to your inbox. Reply to it like you would any real lead, and you&apos;ll
               get an honest read on your response time plus a quick tip to make it faster. Speed is the #1 thing that wins
-              buyers, and it&apos;s the easiest thing to improve.
+              customers, and it&apos;s the easiest thing to improve.
             </p>
             <p style={{ color: "#a8a29e", fontSize: 13, margin: "0 0 26px" }}>It&apos;s a friendly test from our address — reply naturally, we&apos;ll do the rest. No catch.</p>
 
             <input style={input} placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} />
             <input style={input} placeholder="Business email (where leads reach you)" value={email} onChange={(e) => setEmail(e.target.value)} onKeyDown={(e) => e.key === "Enter" && submit()} />
-            <input style={input} placeholder="Brokerage / business name (optional)" value={business} onChange={(e) => setBusiness(e.target.value)} />
+            <input style={input} placeholder="Practice / business name (optional)" value={business} onChange={(e) => setBusiness(e.target.value)} />
             <input style={input} placeholder="Website (optional)" value={website} onChange={(e) => setWebsite(e.target.value)} />
             {err && <p style={{ color: terra, fontSize: 13, margin: "2px 0 12px" }}>{err}</p>}
             <button onClick={submit} disabled={busy} style={{ width: "100%", padding: "15px", background: terra, color: "#fff", border: 0, borderRadius: 10, fontSize: 16, fontWeight: 700, cursor: "pointer", opacity: busy ? 0.6 : 1 }}>
@@ -99,7 +99,7 @@ export default function GradePage() {
               Check your inbox<span style={{ color: terra }}>.</span>
             </h1>
             <p style={{ color: muted, fontSize: 16, lineHeight: 1.6, margin: "0 0 14px" }}>
-              A sample buyer just messaged you (subject: <strong>&ldquo;Is this property still available?&rdquo;</strong>).
+              A sample customer just messaged you (subject: <strong>&ldquo;Do you have availability this week?&rdquo;</strong>).
               <strong> Reply to that message to get your score</strong> — the clock is running.
             </p>
             <p style={{ color: muted, fontSize: 14, lineHeight: 1.6, margin: "0 0 18px" }}>

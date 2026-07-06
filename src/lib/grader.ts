@@ -1,5 +1,5 @@
 // The Lead-Response Grader — KindCodex's pull-funnel ("turn on the lights").
-// A realtor consents to be graded; we email them a sample buyer inquiry from our
+// A business owner consents to be graded; we email them a sample customer inquiry from our
 // testing address, they reply as they would to a real lead, and we clock the gap.
 // The score IS the wound (slow reply = lost deals); the 60-second invisible system
 // is the cure. Reuses the Gmail SMTP + IMAP plumbing already used for outreach.
@@ -15,7 +15,7 @@ function gmail() {
 }
 const REPLY_INBOX = () => process.env.GMAIL_USER || undefined;
 
-export const TEST_SUBJECT = "Is this property still available?";
+export const TEST_SUBJECT = "Do you have availability this week?";
 
 // A prospect replying to a cold follow-up with one of these is asking for their free grade.
 export const GRADE_REQUEST_RE = /\b(score|grade me|grade my|send it|send me|i'?m in|i'?m interested|interested|sounds good|yes please|let'?s do it)\b/i;
@@ -24,7 +24,7 @@ export function testInquiryBody(name: string): string {
   const first = (name || "").trim().split(/\s+/)[0];
   return `Hi${first ? " " + first : ""},
 
-I came across one of your listings and I'm really interested. Is it still available, and could we find a time to see it this week? Also, what's the asking price?
+I found your business online and I'm really interested. Could you tell me what pricing looks like, and whether you have any availability this week? Ready to move quickly for the right fit.
 
 Thanks,
 Jordan`;
@@ -56,7 +56,7 @@ export function scoreFor(minutes: number): Score {
     return {
       grade: "A+", band: "elite", minutes,
       headline: `You replied in ${t} — genuinely excellent.`,
-      context: "Fast first replies are the single biggest edge an agent can have, and you've got it. Nice work.",
+      context: "Fast first replies are the single biggest edge a business can have, and you've got it. Nice work.",
       tip: "Keep a couple of warm, ready-to-send opener templates so a quick reply never costs you thinking time.",
       cure: "The only hard part is keeping this up on every lead, nights and weekends included. That's the piece we make automatic, so you can keep your A+ without living on your phone.",
     };
@@ -72,15 +72,15 @@ export function scoreFor(minutes: number): Score {
     return {
       grade: "B", band: "fair", minutes,
       headline: `You replied in ${t} — and there's a real, easy win here.`,
-      context: "This is completely normal when you're busy showing homes. It's also one of the most fixable things in the business: buyers often reach out to a few agents and tend to go with whoever answers first.",
+      context: "This is completely normal when you're busy with customers. It's also one of the most fixable things in business: people often reach out to a few places and tend to go with whoever answers first.",
       tip: "Even without any tools: a saved text/email template plus phone notifications turned on for your lead sources can cut your response time a lot this week.",
       cure: "An instant, friendly auto-reply would keep these leads warm until you can personally call, so a busy afternoon never costs you one.",
     };
   return {
     grade: "C", band: "slow", minutes,
     headline: `Your reply came in around ${t}.`,
-    context: "Honestly, this is what happens to almost every busy agent. No judgment. It's also the highest-leverage thing you could improve, because a fast first touch genuinely wins more clients.",
-    tip: "Quickest free fix: forward your website/Zillow leads to a number with push notifications on, and keep one ready-to-send reply you can fire in two taps.",
+    context: "Honestly, this is what happens to almost every busy owner. No judgment. It's also the highest-leverage thing you could improve, because a fast first touch genuinely wins more clients.",
+    tip: "Quickest free fix: forward your website and form leads to a number with push notifications on, and keep one ready-to-send reply you can fire in two taps.",
     cure: "This is exactly what we build: a 60-second auto-reply that catches every lead for you, even at 2am or mid-showing, so a slow day never costs you a client.",
   };
 }
@@ -111,14 +111,14 @@ function scoreEmailHtml(name: string, s: Score): string {
       <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#a8a29e">Your lead-response score</div>
       <div style="font-family:Georgia,serif;font-size:84px;font-weight:700;line-height:1;color:${accent};margin:6px 0 4px">${s.grade}</div>
       <h1 style="margin:8px 0 14px;font-size:21px;font-weight:700;line-height:1.25;color:#1c1917">${s.headline}</h1>
-      <p style="margin:0 0 18px;font-size:14px;line-height:1.6;color:#57534e">Hi ${first}, thanks for trying this. We sent a sample buyer inquiry to your inbox and timed your reply. ${s.context}</p>
+      <p style="margin:0 0 18px;font-size:14px;line-height:1.6;color:#57534e">Hi ${first}, thanks for trying this. We sent a sample customer inquiry to your inbox and timed your reply. ${s.context}</p>
       <table width="100%" cellpadding="0" cellspacing="0" style="background:#faf9f5;border:1px solid #e7e5e4;border-radius:12px;margin:0 0 22px"><tr><td style="padding:16px 18px">
         <div style="font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#c2410c;margin-bottom:6px">One quick win you can use today</div>
         <div style="font-size:14px;line-height:1.6;color:#1c1917">${s.tip}</div>
       </td></tr></table>
       <p style="margin:0 0 22px;font-size:15px;line-height:1.6;color:#1c1917">${s.cure}</p>
       <a href="https://kindcodex.com/demo?ref=grader" style="display:inline-block;background:#c2410c;color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:13px 22px;border-radius:10px">See how it works →</a>
-      <p style="margin:22px 0 0;font-size:13px;line-height:1.6;color:#78716c">No pressure at all — if it's helpful, reply and I'll show you how it'd work for your listings. If not, you've got the tip above for free. — August, KindCodex (Honolulu)</p>
+      <p style="margin:22px 0 0;font-size:13px;line-height:1.6;color:#78716c">No pressure at all — if it's helpful, reply and I'll show you how it'd work for your business. If not, you've got the tip above for free. — August, KindCodex (Honolulu)</p>
     </td></tr>
     <tr><td style="padding:20px 32px;background:#faf9f5;border-top:1px solid #e7e5e4;text-align:center;font-size:11px;color:#a8a29e">Invisible systems. Visible results. · kindcodex.com</td></tr>
   </table></td></tr></table></body></html>`;
@@ -259,9 +259,9 @@ async function graderReminders(contacts: { email: string; attributes: Record<str
     <table width="100%" cellpadding="0" cellspacing="0" style="max-width:540px;background:#fff;border:1px solid #e7e5e4;border-top:3px solid #c2410c;border-radius:16px;text-align:left">
       <tr><td style="padding:22px 30px;border-bottom:1px solid #f5f5f4;font-size:18px;font-weight:700">KindCodex<span style="color:#c2410c">.</span></td></tr>
       <tr><td style="padding:28px 30px">
-        <p style="margin:0 0 14px;font-size:15px;line-height:1.6">Hi ${first}, your lead-response score is just one reply away. To time it, I sent a sample buyer inquiry to this inbox (subject: <strong>&ldquo;Is this property still available?&rdquo;</strong>) — it&apos;s still unanswered, which is exactly the thing the check measures. No judgment, it happens to every busy agent.</p>
+        <p style="margin:0 0 14px;font-size:15px;line-height:1.6">Hi ${first}, your lead-response score is just one reply away. To time it, I sent a sample customer inquiry to this inbox (subject: <strong>&ldquo;Do you have availability this week?&rdquo;</strong>) — it&apos;s still unanswered, which is exactly the thing the check measures. No judgment, it happens to every busy owner.</p>
         <p style="margin:0 0 14px;font-size:15px;line-height:1.6">Just reply to that message like you would a real lead and I&apos;ll send your timed score right back. (If you don&apos;t see it, peek in spam — and that&apos;s a clue in itself.)</p>
-        <p style="margin:0 0 6px;font-size:14px;line-height:1.6;color:#57534e">Free tip either way: turn on push notifications for your website/Zillow leads and keep one friendly opener saved, so a new inquiry gets answered in seconds even mid-showing. Speed is the #1 thing that wins buyers.</p>
+        <p style="margin:0 0 6px;font-size:14px;line-height:1.6;color:#57534e">Free tip either way: turn on push notifications for your website and form leads and keep one friendly opener saved, so a new inquiry gets answered in seconds even mid-job. Speed is the #1 thing that wins customers.</p>
         <p style="margin:16px 0 0;font-size:13px;color:#78716c">No pressure at all. — August, KindCodex (Honolulu)</p>
       </td></tr>
     </table></td></tr></table></body></html>`;
@@ -271,7 +271,7 @@ async function graderReminders(contacts: { email: string; attributes: Record<str
         toName: first,
         subject: "Your score is one reply away",
         html,
-        text: `Hi ${first}, your lead-response score is one reply away. Reply to the sample buyer inquiry I sent (subject: "Is this property still available?") and I'll send your timed score. Tip: turn on lead notifications + keep a saved opener so you can reply in seconds. - August, KindCodex`,
+        text: `Hi ${first}, your lead-response score is one reply away. Reply to the sample customer inquiry I sent (subject: "Do you have availability this week?") and I'll send your timed score. Tip: turn on lead notifications + keep a saved opener so you can reply in seconds. - August, KindCodex`,
         replyTo: REPLY_INBOX(),
       });
       if (!res.ok) continue;
