@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useCallback } from "react";
+import PostQueue from "./PostQueue";
 
 interface Row {
   email: string;
@@ -79,7 +80,7 @@ const INTENT_COLOR: Record<string, { bg: string; fg: string }> = {
 export default function AdminPage() {
   const [key, setKey] = useState("");
   const [authed, setAuthed] = useState(false);
-  const [view, setView] = useState<"pipeline" | "replies" | "content">("pipeline");
+  const [view, setView] = useState<"pipeline" | "replies" | "content" | "queue">("pipeline");
   const [rows, setRows] = useState<Row[]>([]);
   const [counts, setCounts] = useState({ total: 0, inbound: 0, outbound: 0, booked: 0, queueSize: 0, orphanCount: 0 });
   const [filter, setFilter] = useState<"all" | "inbound" | "outbound">("all");
@@ -454,21 +455,24 @@ export default function AdminPage() {
       <div style={{ maxWidth: 1180, margin: "0 auto" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 18 }}>
           <h1 style={{ fontWeight: 700, fontSize: 22 }}>
-            {view === "pipeline" ? "Pipeline" : view === "replies" ? "Replies" : "Content"}<span style={{ color: "#c2410c" }}>.</span>
+            {view === "queue" ? "Post Queue" : view === "pipeline" ? "Pipeline" : view === "replies" ? "Replies" : "Content"}<span style={{ color: "#c2410c" }}>.</span>
           </h1>
           <div style={{ display: "flex", gap: 8 }}>
             <button onClick={() => setView("pipeline")} style={view === "pipeline" ? btnActive : btnGhost}>Pipeline</button>
             <button onClick={() => setView("replies")} style={view === "replies" ? btnActive : btnGhost}>
               Replies{replies.length ? ` (${replies.length})` : ""}
             </button>
-            <button onClick={() => setView("content")} style={view === "content" ? btnActive : btnGhost}>Content</button>
-            <button onClick={() => (view === "pipeline" ? load(key) : view === "replies" ? loadReplies(key) : generate(key))} style={btnGhost}>↻ Refresh</button>
+            <button onClick={() => setView("queue")} style={view === "queue" ? btnActive : btnGhost}>Queue</button>
+            <button onClick={() => setView("content")} style={view === "content" ? btnActive : btnGhost}>Generate</button>
+            <button onClick={() => (view === "pipeline" ? load(key) : view === "replies" ? loadReplies(key) : view === "content" ? generate(key) : undefined)} style={btnGhost}>↻ Refresh</button>
           </div>
         </div>
 
         {err && <p style={{ color: "#c2410c", fontSize: 13, marginBottom: 12 }}>{err}</p>}
 
-        {view === "pipeline" ? (
+        {view === "queue" ? (
+          <PostQueue authKey={key} liConnected={liConnected} onConnect={connectLinkedIn} />
+        ) : view === "pipeline" ? (
           <>
             <div style={{ display: "flex", gap: 10, marginBottom: 16, flexWrap: "wrap" }}>
               <Stat label="Total" value={counts.total} />
