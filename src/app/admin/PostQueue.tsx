@@ -224,7 +224,7 @@ export default function PostQueue({
               {/* preview */}
               <div style={{ flex: "0 0 220px" }}>
                 {p.image ? (
-                  <img src={p.image} alt={p.label} onClick={() => setZoom(p.image)} title="Click to enlarge" style={{ width: 220, height: 275, borderRadius: 10, border: "1px solid #f0efea", display: "block", objectFit: "cover", background: "#faf9f5", cursor: "zoom-in" }} />
+                  <img src={p.image} alt={p.label} loading="lazy" decoding="async" onClick={() => setZoom(p.image)} title="Click to enlarge" style={{ width: 220, height: 275, borderRadius: 10, border: "1px solid #f0efea", display: "block", objectFit: "cover", background: "#faf9f5", cursor: "zoom-in" }} />
                 ) : (
                   <div style={{ width: 220, height: 275, borderRadius: 10, border: "1px dashed #d6d3d1", display: "flex", alignItems: "center", justifyContent: "center", color: "#a8a29e", fontSize: 12 }}>Text-only post</div>
                 )}
