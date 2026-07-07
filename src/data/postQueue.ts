@@ -383,6 +383,118 @@ export const POST_MANIFEST: QueuePost[] = [
     "caption": "A no-heat call at 6am doesn't wait politely. Around 80% of people who reach voicemail hang up and dial the next company, and most never call the first one back. For urgent trades, the whole game is being the one that picks up. What answers your phone before the office opens?"
   },
   {
+    "id": "n54",
+    "image": "/posts/kindcodex-n54-landscaper.png",
+    "batch": 3,
+    "label": "Landscaper — 41%",
+    "caption": "The mowers stop at 5, but the 'can you quote my yard' messages don't. Roughly 41% of home-service demand lands after hours, caught or lost depending on whether anything's awake to catch it. What happens to a Saturday-evening inquiry at your company?"
+  },
+  {
+    "id": "n55",
+    "image": "/posts/kindcodex-n55-pest-control.png",
+    "batch": 3,
+    "label": "Pest Control — 62%",
+    "caption": "Someone who just found termites is not in a patient mood; they call the next name if yours goes to voicemail. Over half of small-business calls never reach a human. For anything urgent, answering is the marketing. How many of yours actually get picked up?"
+  },
+  {
+    "id": "n56",
+    "image": "/posts/kindcodex-n56-auto-body-shop.png",
+    "batch": 3,
+    "label": "Auto Body Shop — 78%",
+    "caption": "After a fender-bender, people just want to stop thinking about it. The shop that replies first usually gets the car, ahead of price and reputation. Speed reads as competence when someone's stressed. How fast does a photo-and-quote request hear back from you?"
+  },
+  {
+    "id": "n57",
+    "image": "/posts/kindcodex-n57-chiropractor.png",
+    "batch": 3,
+    "label": "Chiropractor — −18%",
+    "caption": "An empty adjustment slot is time that can't be resold. Clinics found that letting patients write their own appointment card cut no-shows about 18%; the fix costs a pen and one sentence. What is your no-show rate quietly costing the schedule?"
+  },
+  {
+    "id": "n58",
+    "image": "/posts/kindcodex-n58-day-spa.png",
+    "batch": 3,
+    "label": "Day Spa — 76%",
+    "caption": "'Massage near me' at 2pm is someone deciding on today, not someday, and three-quarters visit a business within the day. The listing, the photos, and a 'book right now' answer matter more than another paragraph. Are you easy to choose in that 30-second window?"
+  },
+  {
+    "id": "n59",
+    "image": "/posts/kindcodex-n59-private-tutor.png",
+    "batch": 3,
+    "label": "Private Tutor",
+    "caption": "A parent reaching out about a struggling kid is anxious, not price-shopping. The tutor who answers with a clear next step, not a rate sheet, wins, because they're really selling relief. Show the plan before the price. What does a worried parent hear back from you first?"
+  },
+  {
+    "id": "n60",
+    "image": "/posts/kindcodex-n60-catering.png",
+    "batch": 3,
+    "label": "Catering — 42 hours",
+    "caption": "A couple planning a 150-person event messages three caterers on a Sunday. The average reply takes 42 hours; by then two of them have booked elsewhere. Event work is decided in the reply gap, not the tasting. How quickly does a date-and-headcount inquiry reach you?"
+  },
+  {
+    "id": "n61",
+    "image": "/posts/kindcodex-n61-moving-company.png",
+    "batch": 3,
+    "label": "Moving Company — 80%",
+    "caption": "Moving quotes are a race: people call three companies and book the one that answers. Around 80% who reach voicemail hang up without a word. In a same-week business, being reachable beats being cheapest. What picks up your line at 7pm?"
+  },
+  {
+    "id": "n62",
+    "image": "/posts/kindcodex-n62-orthodontist.png",
+    "batch": 3,
+    "label": "Orthodontist — 44%",
+    "caption": "Parents choosing braces read recent reviews, not the plaque on the wall; nearly half only weigh reviews from the last month. A steady trickle of fresh ones does more than any single award. When was your newest review written?"
+  },
+  {
+    "id": "n63",
+    "image": "/posts/kindcodex-n63-optometry.png",
+    "batch": 3,
+    "label": "Optometry — 37%",
+    "caption": "Someone booking an eye exam abandons the form at the phone field; they aren't ready for a call, just an appointment. A required phone number costs about 37% of completions, and making it optional nearly doubles them. What's the one field costing you bookings?"
+  },
+  {
+    "id": "n64",
+    "image": "/posts/kindcodex-n64-interior-designer.png",
+    "batch": 3,
+    "label": "Interior Designer",
+    "caption": "A finished room hides a hundred decisions the client never sees, so the fee can feel abstract. The labor illusion says visible effort raises perceived value, so share the process, not just the reveal. Where does your best thinking happen off-camera?"
+  },
+  {
+    "id": "n65",
+    "image": "/posts/kindcodex-n65-med-clinic.png",
+    "batch": 3,
+    "label": "Med Clinic — 100×",
+    "caption": "A prospective patient fills out a form and then keeps looking. The MIT study found reaching them in five minutes versus thirty is worth roughly 100x. In healthcare the first responsive practice often becomes the chosen one. How fast does a new-patient form get a reply?"
+  },
+  {
+    "id": "n66",
+    "image": "/posts/kindcodex-n66-appliance-repair.png",
+    "batch": 3,
+    "label": "Appliance Repair — 41%",
+    "caption": "The fridge quits Friday night, not Monday at 9. About 41% of home-service demand lands after hours, and the company that catches it wins the weekend. What happens to your after-hours requests right now?"
+  },
+  {
+    "id": "n67",
+    "image": "/posts/kindcodex-n67-insurance-agency.png",
+    "batch": 3,
+    "label": "Insurance Agency — 78%",
+    "caption": "A quote-shopper messages a few agents and tends to go with whoever replies first, before comparing every rate. Being present at the moment of intent quietly beats being a few dollars cheaper. How fast does a quote request reach a person at your agency?"
+  },
+  {
+    "id": "n68",
+    "image": "/posts/kindcodex-n68-dog-grooming.png",
+    "batch": 3,
+    "label": "Dog Grooming — 62%",
+    "caption": "Someone wants a Saturday grooming slot, calls, gets voicemail, and dials the next place. Over half of small-business calls never reach a person. For quick bookings, answering is the whole game. Do yours get picked up, or missed?"
+  },
+  {
+    "id": "n69",
+    "image": "/posts/kindcodex-n69-pressure-washing.png",
+    "batch": 3,
+    "label": "Pressure Washing",
+    "caption": "A homeowner gets three driveway quotes, and the first real number anchors the rest. Being first with a clear price is often worth more than being the lowest. When someone asks 'what's it run,' are you the fast answer or the third callback?"
+  },
+  {
     "id": "n19b",
     "image": "",
     "batch": 2,
