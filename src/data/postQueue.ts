@@ -159,6 +159,356 @@ export const POST_MANIFEST: QueuePost[] = [
     "caption": "You want solar. You're ready to spend $40,000 today. The form wants your phone number first.\n\nAnd you hesitate — not because you're not serious, but because you know exactly what that field means: three calls tomorrow while you're at work.\n\nForm-analytics research across ~93 million sessions found a required phone field turns away roughly 37% of the people filling out a form. Mark it optional and completions nearly double. The people bouncing aren't tire-kickers; they're buyers who want to choose when the conversation starts.\n\nOne word — \"optional\" — might be the cheapest A/B test in home improvement. What's your form asking for before it's earned it?"
   },
   {
+    "id": "n22",
+    "image": "/posts/kindcodex-n22-implant-dentist.png",
+    "batch": 3,
+    "label": "The pen keeps the chair full.",
+    "caption": "A dental office kept losing 6:47pm implant chairs to no-shows, and the fix wasn't a reminder text. In a study out of the Journal of the Royal Society of Medicine, patients who wrote their own appointment card, instead of being handed a printed one, no-showed about 18% less. The act of writing the date turns a booking into a small promise you made to yourself. Same slot, same patient, one different pen. What quiet moment of ownership is your booking flow skipping right now?"
+  },
+  {
+    "id": "n23",
+    "image": "/posts/kindcodex-n23-roofer.png",
+    "batch": 3,
+    "label": "The roof gets booked at night.",
+    "caption": "A homeowner spots a water stain at 10pm, and by the time your crew opens the shop, the decision is already made. CallRail's data on home-service calls found roughly 41% of jobs get booked outside normal business hours, when the leak feels scariest and the office is dark. The roofer who answers that late-night moment isn't working harder, just present when the worry peaks. Most of that after-hours demand never shows up on a daytime report. Where do your night hours actually go?"
+  },
+  {
+    "id": "n24",
+    "image": "/posts/kindcodex-n24-med-spa.png",
+    "batch": 3,
+    "label": "One required field, half the bookings gone.",
+    "caption": "A med spa runs a beautiful ad, the click lands, the interest is real, and then the booking form demands a phone number before anyone's ready to give it. Across form studies, a mandatory phone field tends to push away about 37% of people, while simply marking it optional can nearly double completions. Nobody rages about it; they just quietly close the tab and the interest evaporates. The treatment was wanted. The lock on the door wasn't. Which field on your form is politely turning people away?"
+  },
+  {
+    "id": "n25",
+    "image": "/posts/kindcodex-n25-luxury-realtor.png",
+    "batch": 3,
+    "label": "The first number sets the whole table.",
+    "caption": "A $2M listing goes live on a Sunday, and long before the counteroffers fly, one quiet decision has already tilted the room: who says a number first. In Galinsky's negotiation research, the opening figure acts as an anchor that pulls the final price toward whoever set it. It isn't about being pushy; it's about framing the conversation before someone else frames it for you. The buyer who waits to react is negotiating on a table someone else already set. In your deals, who usually names the number first?"
+  },
+  {
+    "id": "n26",
+    "image": "/posts/kindcodex-n26-hvac-company.png",
+    "batch": 3,
+    "label": "Voicemail is where the call goes to die.",
+    "caption": "A furnace quits on the coldest night, the homeowner calls, and instead of a person they get a beep. Roughly 80% of callers who reach voicemail simply hang up, and most of them never dial back, they just call the next name on the list. For HVAC, where the problem is urgent and the wallet is already open, that ring going unanswered isn't a missed message; it's the whole job handed to a competitor. The demand was there. The receiver was down. How many of your best jobs never leave a voicemail at all?"
+  },
+  {
+    "id": "n27",
+    "image": "/posts/kindcodex-n27-wedding-planner.png",
+    "batch": 3,
+    "label": "The bouquet only hangs for a moment.",
+    "caption": "An engaged couple fills out a planner's inquiry form the night they get engaged, glowing, ready, wanting to talk today. Harvard Business Review found the average web lead waits about 42 hours for a reply, and 23% of them never get one at all. By hour two, they've messaged three other planners; by the second day, the excitement has cooled and moved on. The bouquet hangs in the air for a heartbeat, and then it's gone. How long does a couple wait before someone finally reaches back?"
+  },
+  {
+    "id": "n28",
+    "image": "/posts/kindcodex-n28-personal-injury-lawyer.png",
+    "batch": 3,
+    "label": "Five minutes, or the moment closes.",
+    "caption": "Right after a wreck, a person fills out one form while the adrenaline is still up, and in that window they'll talk to whoever answers. Research from MIT and InsideSales found that replying within five minutes instead of thirty makes you roughly 100x more likely to actually reach that person. Not 2x. Around 100x. After the moment passes, they've stopped answering unknown numbers, and the case quietly belongs to someone faster. The clock in that neck barely turns. What would change if the first five minutes were never left to chance?"
+  },
+  {
+    "id": "n29",
+    "image": "/posts/kindcodex-n29-solar-contractor.png",
+    "batch": 3,
+    "label": "Nearby today means knocking tomorrow.",
+    "caption": "Someone taps 'solar installer near me' from their kitchen table, and that little search is closer to a footstep than a daydream. Google's data on 'near me' searches found 76% of them turn into an in-person visit within 24 hours. The intent isn't hypothetical; it's a person about to be standing on a doorstep tomorrow. The contractor who's easy to find and quick to answer is the one whose door gets that knock. That demand is already moving through your neighborhood. When it arrives, whose address does it have?"
+  },
+  {
+    "id": "n30",
+    "image": "/posts/kindcodex-n30-boutique-gym.png",
+    "batch": 3,
+    "label": "The flawless star sells the worst.",
+    "caption": "A boutique gym chases a spotless 5.0 and assumes perfect is the goal, but shoppers read it differently. Northwestern's study of 122,000 reviews found ratings between 4.2 and 4.7 tend to convert better than a flawless 5.0, and people who actually click into the 1-star reviews buy about twice as often. A little imperfection reads as real; a perfect record reads as filtered. The honest review that mentions a small flaw is often the one that earns the sign-up. What would happen if you stopped hiding your least-perfect review?"
+  },
+  {
+    "id": "n31",
+    "image": "/posts/kindcodex-n31-fine-dining-restaurant.png",
+    "batch": 3,
+    "label": "For every voice, twenty-five silent chairs.",
+    "caption": "One diner mentions the risotto was cold, and it's tempting to treat that as a single bad night. Kolsky's research suggests the opposite: only about 1 in 26 unhappy customers actually says something, the other 25 just don't come back and never tell you why. So the complaint you hear isn't the problem, it's the one visible tip of twenty-five quiet exits. That single raised hand is a gift most guests won't give you. What might those twenty-five empty chairs be trying to say?"
+  },
+  {
+    "id": "n32",
+    "image": "/posts/kindcodex-n32-cosmetic-surgeon.png",
+    "batch": 3,
+    "label": "A lead cools in minutes, not days.",
+    "caption": "A patient inquiry about a $12k procedure lands at 9:14pm. By morning it feels like a fresh, exciting message on your end. On theirs, it has been sitting long enough to book a consult somewhere else. Research from MIT and InsideSales found that replying within five minutes instead of thirty makes you roughly a hundred times likelier to actually connect with that person. Not a better pitch. Not a lower price. Just being there while the ice is still cold. So the quiet question underneath a full inbox becomes: how many warm ones melted overnight while nobody was watching?"
+  },
+  {
+    "id": "n33",
+    "image": "/posts/kindcodex-n33-locksmith.png",
+    "batch": 3,
+    "label": "Most calls never reach a human.",
+    "caption": "It is 2am, someone is locked out of their car in a parking garage, and they are calling the first locksmith Google hands them. What they often meet is a menu, a hold tone, or a line that just rings out. 411 Locals found that around 62% of calls to small businesses never reach an actual person. The emergency does not wait; it simply dials the next name on the list. The lock gets picked either way, the only question is by whose van. When a stranger is standing in the cold with your number already typed, what happens in the three seconds before anyone says hello?"
+  },
+  {
+    "id": "n34",
+    "image": "/posts/kindcodex-n34-plumber.png",
+    "batch": 3,
+    "label": "Four in ten jobs book after hours.",
+    "caption": "The burst pipe does not check business hours. It happens at 11:40pm, under a sink, with a homeowner kneeling in a spreading puddle and a phone in the other hand. CallRail's data shows about 41% of home-service jobs get booked outside the normal workday, which means nearly half the work is decided while the office is dark and the crew is asleep. The person who answers that midnight drip is rarely the cheapest; they are simply the one who was reachable. If almost half of tomorrow's jobs are chosen tonight, who is minding the line when the phone rings at midnight?"
+  },
+  {
+    "id": "n35",
+    "image": "/posts/kindcodex-n35-hair-salon.png",
+    "batch": 3,
+    "label": "One required field tears bookings in half.",
+    "caption": "Someone finds the salon on their lunch break, likes the work, taps book, and starts filling in the form. Then a required phone number field appears and, for reasons they could not fully explain, they close the tab. Form studies have found a mandatory phone field can push abandonment to around 37%, while marking it optional nearly doubles the number of people who finish. The haircut they wanted did not change; the friction between them and the chair did. It makes you wonder how many appointments were never lost to a competitor at all, but to a single small box that asked for one thing too many?"
+  },
+  {
+    "id": "n36",
+    "image": "/posts/kindcodex-n36-estate-lawyer.png",
+    "batch": 3,
+    "label": "The first number sets the whole deal.",
+    "caption": "In an estate settlement, the whole conversation quietly organizes itself around whichever figure lands on the table first. Every counter, every concession, every it feels fair drifts toward that opening line. Negotiation research by Adam Galinsky calls it the anchor effect: the party who names the first number tends to pull the final outcome toward it, often by more than either side realizes. The number is dropped in the first two minutes; the settlement is shaped for the next two months. Given how heavy that first figure turns out to be, who usually gets to set it in the room, you or the other side?"
+  },
+  {
+    "id": "n37",
+    "image": "/posts/kindcodex-n37-auto-body-shop.png",
+    "batch": 3,
+    "label": "The average reply takes 42 hours.",
+    "caption": "A driver photographs the crumpled fender in a parking lot and sends the same message to three body shops before the tow truck even arrives. Whoever answers first tends to get the car, because by the time the others reply the estimate is already booked. A Harvard Business Review study found the average response to a web lead takes about 42 hours, and nearly a quarter of leads never hear back at all. The dent does not care about your queue; it just goes to the shop that showed up. If the fastest reply usually wins the repair, where does 42 hours put you in that race?"
+  },
+  {
+    "id": "n38",
+    "image": "/posts/kindcodex-n38-pest-control.png",
+    "batch": 3,
+    "label": "For every complaint, twenty-five just leave.",
+    "caption": "A pest control customer sees an ant trail come back two weeks after the treatment. Most of them will not call to complain; they will simply not renew, and they will mention it to a neighbor over the fence instead of to you. Research summarized by Esteban Kolsky found that only about 1 in 26 unhappy customers ever says anything, while the other 25 quietly walk. Silence reads like satisfaction right up until the route sheet gets shorter. The one who complains is actually doing you a favor by staying long enough to speak. So the harder question is the quiet one: how would you even know about the twenty-five who never said a word?"
+  },
+  {
+    "id": "n39",
+    "image": "/posts/kindcodex-n39-optometry.png",
+    "batch": 3,
+    "label": "A flawless rating reads as fake.",
+    "caption": "When an optometry practice shows a spotless, unbroken 5.0, careful shoppers do a strange thing: they trust it less. It looks curated, filtered, a little too clean to be real. Northwestern researchers studying 122,000 reviews found purchase likelihood actually peaks somewhere between 4.2 and 4.7, not at a perfect score. The small crack is what makes the glasses believable. A single honest three-star, answered gracefully, can do more for a booking than a wall of flawless praise. It is a little counterintuitive, isn't it, that the tiny imperfection might be the most persuasive thing on the page?"
+  },
+  {
+    "id": "n40",
+    "image": "/posts/kindcodex-n40-moving-company.png",
+    "batch": 3,
+    "label": "Work people can see feels worth more.",
+    "caption": "Two moving crews can do identical work, yet the one the customer watches wrap, pad, and label every box almost always feels like the better value, even at the same price. Harvard researchers Ryan Buell and Michael Norton called this the labor illusion: when effort is visible, people perceive the outcome as worth more. A quiet, seamless move can read as suspiciously easy; a move where the care is on display reads as expertise. The tape you see being pulled is doing double duty, sealing the box and selling the service. So when the job goes invisibly smoothly, who is left to notice how much skill it actually took?"
+  },
+  {
+    "id": "n41",
+    "image": "/posts/kindcodex-n41-catering.png",
+    "batch": 3,
+    "label": "Most hire whoever answers first.",
+    "caption": "A couple planning a wedding sends the same what's your availability for October note to four caterers on a Sunday afternoon. By the time three of them reply on Monday, the tasting is already scheduled with the one who answered that same day. Lead Connect's data suggests roughly 78% of buyers go with the very first business to respond. The menu, the plating, the price list, all of it matters far less than most owners think when the ring goes unanswered. The bell only rewards the one who moves toward it. When the next inquiry rings on a quiet weekend, who reaches the table first?"
+  },
+  {
+    "id": "n42",
+    "image": "/posts/kindcodex-n42-general-contractor.png",
+    "batch": 3,
+    "label": "First to answer, first to build.",
+    "caption": "A $180k kitchen remodel starts as one email at 8:12am. By the time three contractors see it, one has already replied - and 78% of buyers hire whoever answers first (Lead Connect). The job rarely goes to the best bid. It goes to the first open door. The other two never learn they lost before they'd read the message. Makes you wonder how many jobs get decided in the first ten minutes, long before anyone talks price?"
+  },
+  {
+    "id": "n43",
+    "image": "/posts/kindcodex-n43-coffee-shop.png",
+    "batch": 3,
+    "label": "Sixty-two calls in every hundred, unheard.",
+    "caption": "A regular wants to pre-order twelve lattes for the office and calls at 7:04am. It rings, rolls, and fades - one of the 62% of small-business calls that never reach a human (411 Locals). She shrugs and taps the chain two blocks over. No angry review, no complaint, just a warm order that evaporated into a dial tone. The espresso machine was working perfectly. The phone was the leak. How much of a morning rush is really lost before the first cup is even poured?"
+  },
+  {
+    "id": "n44",
+    "image": "/posts/kindcodex-n44-mortgage-broker.png",
+    "batch": 3,
+    "label": "Forty-two hours is a lifetime for a rate.",
+    "caption": "Someone fills out a rate quote at 9:30pm, mortgage half-decided, ready to lock. The average web-lead reply takes 42 hours, and 23% never get one at all (HBR). By the time the callback comes, rates have moved and so has the borrower - already pre-approved elsewhere. The file was never weak. It just aged in a queue while a faster broker answered that night. In a business measured in basis points, what is a two-day silence actually costing?"
+  },
+  {
+    "id": "n45",
+    "image": "/posts/kindcodex-n45-custom-pool-builder.png",
+    "batch": 3,
+    "label": "A hidden price is an empty pool.",
+    "caption": "A homeowner spends a Saturday comparing custom pool builders for a backyard they've dreamed about for years. One site shows a starting range; the other says 'contact us for pricing.' 64% of shoppers are less likely to buy when the price is hidden (TrustRadius). Guess which quote request actually gets sent. Hiding the number feels like protecting your margin - but to a ready buyer it can read as a locked gate. What if the price tag is the invitation, not the risk?"
+  },
+  {
+    "id": "n46",
+    "image": "/posts/kindcodex-n46-landscaper.png",
+    "batch": 3,
+    "label": "Found nearby, hired by tomorrow.",
+    "caption": "A neighbor stands on a patchy lawn, phone in hand, typing 'landscaper near me' the morning before a weekend barbecue. 76% of those 'near me' searches turn into a visit within 24 hours (Google). The crew that shows up in that search isn't the biggest - it's the one that was findable at the exact moment the itch struck. Same-day intent rewards presence over reputation. If tomorrow's customers are searching this afternoon, who does the map hand them?"
+  },
+  {
+    "id": "n47",
+    "image": "/posts/kindcodex-n47-insurance-agency.png",
+    "batch": 3,
+    "label": "For every voice, twenty-five walk out quietly.",
+    "caption": "One policyholder calls the agency, frustrated about a slow claim, and finally gets it sorted. It feels like a rare bad day. But only 1 in 26 unhappy customers ever complains - the other 25 just quietly let the renewal lapse (Kolsky). That single call wasn't the problem; it was the one visible tip of twenty-five silent goodbyes. The book of business shrinks in a whisper, not a shout. If the only churn you can see is the part that speaks up, how do you learn about the rest?"
+  },
+  {
+    "id": "n48",
+    "image": "/posts/kindcodex-n48-chiropractor.png",
+    "batch": 3,
+    "label": "Ink they wrote themselves keeps the visit.",
+    "caption": "A new patient books a Thursday adjustment. If the front desk simply prints the reminder, the slot is a coin flip. But patients who write out their own appointment card no-show 18% less (J. Royal Society of Medicine). The tiny act of moving the pen turns a booking into a small promise to themselves. Nothing about the treatment changed - only who held the pen. What other quiet handoffs decide whether a chair sits empty at 2pm?"
+  },
+  {
+    "id": "n49",
+    "image": "/posts/kindcodex-n49-day-spa.png",
+    "batch": 3,
+    "label": "Show the calm being made.",
+    "caption": "A guest books a 90-minute massage and imagines they're paying for the hour on the table. But the warmed stones, the folded linens, the room set just so - all of it happens behind a closed door they never see. The labor illusion says visible effort raises perceived value (Buell and Norton): the same service feels worth more when you glimpse the care going into it. Ease that's shown reads as luxury; ease that's hidden reads as easy. What would clients feel if they could see the calm being prepared for them?"
+  },
+  {
+    "id": "n50",
+    "image": "/posts/kindcodex-n50-orthodontist.png",
+    "batch": 3,
+    "label": "The first five reviews are a staircase.",
+    "caption": "A parent researching braces for their kid lands on two orthodontists with near-identical smiles in the gallery. One has a wall of reviews; the other has three. Northwestern's research found the first five reviews can lift purchase likelihood by up to 270% - the steepest climb happens right at the start, from almost-none to a handful. Those early few aren't vanity; they're the first steps that let a stranger trust you enough to call. If the first five carry that much weight, how deliberately is a practice earning them?"
+  },
+  {
+    "id": "n51",
+    "image": "/posts/kindcodex-n51-e-commerce-brand.png",
+    "batch": 3,
+    "label": "One optional field, twice the buyers.",
+    "caption": "A shopper has a $90 cart ready at 11pm, thumb hovering over 'buy.' Then checkout demands a phone number. A required phone field abandons around 37% of forms, and simply marking it 'optional' nearly doubles completions. Same product, same price, same shopper - the only change is one word next to one box. The friction that feels like diligence is often just a locked gate on a customer who was already sold. Which of your 'required' fields is quietly turning buyers around at the door?"
+  },
+  {
+    "id": "n52",
+    "image": "/posts/kindcodex-n52-med-clinic.png",
+    "batch": 3,
+    "label": "The window is five minutes wide.",
+    "caption": "A new patient with an urgent question fills out your clinic's form at 8:12pm. There is a quiet, almost invisible countdown that starts the instant they hit send. Research out of MIT found that reaching back within five minutes makes you roughly a hundred times likelier to actually connect than waiting thirty. Not twice. A hundred. The same human, the same need, the same phone number — only the clock changed. Most of that window closes while the message sits unread in an inbox overnight. So the real question isn't how good your follow-up is. It's this: when your next patient reaches out after hours, who is holding the first five minutes?"
+  },
+  {
+    "id": "n53",
+    "image": "/posts/kindcodex-n53-property-management.png",
+    "batch": 3,
+    "label": "Forty-two hours of silence.",
+    "caption": "A prospective tenant emails about a vacant unit on a Tuesday afternoon. Across the industry, the average reply to a web lead lands about forty-two hours later — and nearly a quarter of those inquiries, Harvard Business Review found, never get any reply at all. Picture that gap as a timeline: a bright first spark, then a long, quiet stretch where the person simply moves on to the next listing. The unit didn't sit empty because it was overpriced. It sat empty because the answer arrived after the decision was already made. What would that same timeline look like if the first reply landed while they were still reading?"
+  },
+  {
+    "id": "n54",
+    "image": "/posts/kindcodex-n54-accounting-firm.png",
+    "batch": 3,
+    "label": "Most calls never reach a person.",
+    "caption": "It's tax season. A business owner with a real, billable, urgent question dials an accounting firm during the busiest week of the year — and, like most callers, lands in a loop that never reaches a human. Industry data from 411 Locals puts it at 62% of small-business calls that simply never connect to a person. The strange part is that these are the warmest leads a firm ever gets: someone motivated enough to pick up the phone. They don't leave because the work is bad. They leave because the funnel quietly leaks before anyone says hello. If two of every three callers slipped out the side, would the front of the firm ever hear the drip?"
+  },
+  {
+    "id": "n55",
+    "image": "/posts/kindcodex-n55-remodeler.png",
+    "batch": 3,
+    "label": "The best jobs book after dark.",
+    "caption": "A homeowner finally decides to gut the kitchen — but they decide it at 9:40pm, on the couch, after the kids are down, phone in hand. That's when the real thinking happens. CallRail's data shows 41% of home-service jobs get booked outside business hours, in exactly those quiet evening windows when the office is dark and the crew is home. The lead didn't wait for a convenient time; the homeowner's life picked the time. Most remodelers meet that moment with a voicemail greeting and a promise to call back tomorrow. By tomorrow, three other names have been messaged. So who's awake in your business when the big decisions actually get made?"
+  },
+  {
+    "id": "n56",
+    "image": "/posts/kindcodex-n56-appliance-repair.png",
+    "batch": 3,
+    "label": "Voicemail is where leads hang up.",
+    "caption": "The dishwasher floods on a Saturday morning and someone dials the first repair number they find. It rings, then a recorded voice asks them to leave a message. Roughly four out of five callers who hit voicemail simply hang up — and most of them never dial back. They're not being difficult; a soaked kitchen floor doesn't wait, so they just move to the next listing. The wild part is how invisible this loss is: no missed-call log tells you about the person who decided, in a half-second, not to leave a message. If most of your busiest-day callers quietly bounce off a greeting, how would you ever know they were there?"
+  },
+  {
+    "id": "n57",
+    "image": "/posts/kindcodex-n57-dog-grooming.png",
+    "batch": 3,
+    "label": "One required field turns people away.",
+    "caption": "A first-time customer is halfway through booking a groom for their nervous rescue pup. Name, done. Pet, done. Then a required phone field — and a small hesitation. Do I really want a call? Testing across web forms has found that forcing the phone number can push roughly 37% of people to abandon the form entirely, while simply labeling it 'optional' can nearly double completions. Same fields, same business, same customer. The only thing that changed was one tiny asterisk asking for something before trust was built. It's easy to add a required field to feel more in control. But is that little red star quietly turning away the people who were already saying yes?"
+  },
+  {
+    "id": "n58",
+    "image": "/posts/kindcodex-n58-interior-designer.png",
+    "batch": 3,
+    "label": "A blank price tag sends buyers back.",
+    "caption": "Someone with a real budget falls for a designer's portfolio, clicks through to work together, and finds the one thing they were looking for missing: any sense of what it costs. So they do the quiet thing people do — they close the tab and tell themselves they'll 'circle back.' TrustRadius found buyers are 64% less likely to purchase when pricing is hidden. Not because the number scared them, but because its absence did. A blank tag reads as 'this will be a negotiation,' and most people would rather avoid that than start it. Showing a starting point can feel exposing. But does hiding the price protect the sale, or quietly send the ready ones back out the door?"
+  },
+  {
+    "id": "n59",
+    "image": "/posts/kindcodex-n59-private-tutor.png",
+    "batch": 3,
+    "label": "Writing it yourself makes it hold.",
+    "caption": "There's a small, almost tender finding buried in the medical literature: when people write their own appointment on the card, in their own hand, they miss it about 18% less often than when someone writes it for them. The act of forming the letters — the tiny effort of committing it yourself — is what makes it stick. A tutor lives on that same thread. A booked session that holds is income; a quiet no-show is an hour that can't be resold. The lesson isn't 'nag harder.' It's that a booking someone actively made feels different from one that was made at them. So what small moment of ownership does your scheduling give a family — and does the commitment hold because they wrote it themselves?"
+  },
+  {
+    "id": "n60",
+    "image": "/posts/kindcodex-n60-veterinary-clinic.png",
+    "batch": 3,
+    "label": "Twenty-five leave without a word.",
+    "caption": "A pet owner has a bad visit — a long wait, a rushed goodbye, a bill that stung more than they expected. They don't say anything. They just don't rebook, and quietly find another clinic next time. Research by TARP and John Goodman put a number on this: for every unhappy customer who actually complains, about twenty-five others say nothing and simply leave. The single one who speaks up isn't the problem — that person is a gift, because they're the only signal you get. Behind them stand twenty-five you'll never hear from. It reframes a one-star review entirely. If only one in twenty-six ever tells you, what might the twenty-five silent ones already be telling each other?"
+  },
+  {
+    "id": "n61",
+    "image": "/posts/kindcodex-n61-cabinetry-maker.png",
+    "batch": 3,
+    "label": "The first number sets the room.",
+    "caption": "A couple wants custom cabinets and, before the shop says a word, they float a figure they read somewhere online. From that instant the whole conversation quietly bends toward their number — even if it was low, even if it was a guess. Psychologist Adam Galinsky's negotiation research keeps finding the same thing: whoever names the first number tends to set the anchor the final price clings to. For a maker who charges for real craft, that early moment matters more than the back-and-forth that follows. Naming your starting point first isn't pushy — it's setting the frame before someone else sets it for you. So in your next quote, who's dropping the anchor: you, or the internet?"
+  },
+  {
+    "id": "n62",
+    "image": "/posts/kindcodex-n62-dental-front-desk.png",
+    "batch": 3,
+    "label": "The call no one answered.",
+    "caption": "A patient with a cracked molar calls a dental office at 6:47pm. No one picks up. 411 Locals found that 62% of calls to small businesses never reach a live person -- they just ring into the dark. That patient doesn't leave a voicemail. They tap the next result. The strange part isn't that offices miss calls; it's how invisible the miss is. The chair is empty, the phone rings, and no report is ever generated that says a paying patient just walked next door. If a call rings out after hours and nobody hears it, does the office ever know it happened?"
+  },
+  {
+    "id": "n63",
+    "image": "/posts/kindcodex-n63-hvac-owner-at-night.png",
+    "batch": 3,
+    "label": "The jobs come after the lights go out.",
+    "caption": "It's 11pm. The owner of a two-truck HVAC company sits at his kitchen table, the day's paperwork done, the phone finally quiet. What he can't see is that a family across town just Googled 'no heat' and filled out a form on his website. CallRail found 41% of home-service jobs get booked outside business hours -- while the owner is asleep, at dinner, or simply off the clock. The work doesn't stop when the lights go out. It just waits in an inbox until morning, next to three others who already got a reply. Who's answering for the business in the hours nobody's watching?"
+  },
+  {
+    "id": "n64",
+    "image": "/posts/kindcodex-n64-realtor-at-an-open-house.png",
+    "batch": 3,
+    "label": "The first number sets the whole room.",
+    "caption": "A $2M listing, an open house on a slow Sunday, one agent standing in a staged living room that no one has walked into yet. Everything about how this house sells was decided before the first buyer arrived -- by the number on the little rider under the sign. Galinsky's research on the anchor effect is quietly ruthless: whoever names the first figure pulls the entire negotiation toward it, even when the other side knows they're being anchored. The price isn't the last move in the deal. It's the first, and it bends every move after it. If the opening number quietly steers the whole conversation, how carefully was yours chosen?"
+  },
+  {
+    "id": "n65",
+    "image": "/posts/kindcodex-n65-empty-gym-class.png",
+    "batch": 3,
+    "label": "The first five change everything.",
+    "caption": "A boutique gym, 5am, mats down, mirror wiped, and not one person in the room yet. The class fills or it doesn't based on something that happens long before anyone laces up: the reviews. Northwestern found the first five reviews raise purchase likelihood by roughly 270% -- the jump from zero social proof to a handful is bigger than almost anything that comes after. A stranger deciding whether to try a class isn't reading review number forty. They're looking to see if the first few even exist. So the quietest lever in a new studio might be the five people who bothered to say something -- how do the first five ever come to be?"
+  },
+  {
+    "id": "n66",
+    "image": "/posts/kindcodex-n66-restaurant-at-close.png",
+    "batch": 3,
+    "label": "They're searching now. They arrive tomorrow.",
+    "caption": "The chairs are up, the floors are half-mopped, and a server is reaching to flip the sign to closed. Across town, someone hungry is typing 'restaurants near me' into their phone. Google found that 76% of 'near me' searches turn into a visit within 24 hours -- most of them the very next day. The room looks finished for the night, but tomorrow's tables are already being decided right now, by whose listing looks alive, reviewed, and open at a glance. The dining room sleeps; the searching doesn't. When the next hungry stranger looks for a place tonight, whose door do they find first?"
+  },
+  {
+    "id": "n67",
+    "image": "/posts/kindcodex-n67-wedding-venue.png",
+    "batch": 3,
+    "label": "The reply that came two days too late.",
+    "caption": "A couple finds a wedding venue they love, sends an inquiry on a Tuesday night, and starts imagining the aisle. The venue replies -- forty-two hours later. By then the couple has toured two others and put down a deposit. HBR's study of thousands of companies found the average reply to a web lead takes about 42 hours, and 23% of inquiries are never answered at all. For a once-in-a-lifetime booking, that envelope on the table isn't just a lead. It's a decision with a short shelf life. The chairs are set; the couple who asked is already gone. If an inquiry has a two-day fuse, how long can a reply really wait?"
+  },
+  {
+    "id": "n68",
+    "image": "/posts/kindcodex-n68-law-office-after-hours.png",
+    "batch": 3,
+    "label": "The first five minutes decide it.",
+    "caption": "A potential client fills out a contact form on a law firm's site at 9pm, after a bad day and a harder decision. The office is dark; the attorney is home. Whether that person becomes a client may already be mostly settled -- MIT and InsideSales found that replying within five minutes instead of thirty makes you roughly 100 times likelier to actually reach them. Not 100% better. 100 times. The sand runs fast on a fresh inquiry; attention curdles into second thoughts within minutes. The desk is quiet, the hourglass nearly empty. When the clock on a new inquiry is measured in minutes, what's watching it after the lights go off?"
+  },
+  {
+    "id": "n69",
+    "image": "/posts/kindcodex-n69-solar-sales-call.png",
+    "batch": 3,
+    "label": "Most who reach voicemail never call twice.",
+    "caption": "A homeowner curious about solar finally works up the nerve to call for a quote. It rings, then clicks to voicemail. They hang up. Industry data on inbound calls suggests roughly 80% of people who hit voicemail don't leave a message -- and most never try again. That call wasn't lost because the price was wrong or the pitch was weak. It was lost in the two seconds between a ring and a recording. The headset sits unworn on an empty desk while a warm buyer quietly cools off. For a purchase people talk themselves into slowly, one missed ring can end the whole conversation -- who catches the ones that reach the machine instead of a person?"
+  },
+  {
+    "id": "n70",
+    "image": "/posts/kindcodex-n70-med-spa-waiting-room.png",
+    "batch": 3,
+    "label": "Flawless reads as fake.",
+    "caption": "A quiet med-spa waiting room, an orchid on the table, no one in the chairs yet. On the wall, the rating that decides who sits down. It feels obvious that a perfect 5.0 should sell best -- but Northwestern, studying 122,000 reviews, found the sweet spot for purchase intent is actually 4.2 to 4.7. Push all the way to flawless and buyers get suspicious; a spotless score reads as filtered, not earned. A few honest imperfections make the good ones believable. For a business built on trust and appearance, the most persuasive rating isn't the highest one. So what does a too-perfect page quietly signal to the person deciding whether to trust you?"
+  },
+  {
+    "id": "n71",
+    "image": "/posts/kindcodex-n71-roofer-on-a-roof.png",
+    "batch": 3,
+    "label": "For every one who tells you, twenty-five don't.",
+    "caption": "A roofer sits on the ridge at dusk, job done, town spread out below. Somewhere on a street he can't see, a past customer noticed a small thing they weren't quite happy about -- and said nothing. They just won't call again. Kolsky's research found that for every unhappy customer who actually complains, twenty-five others stay silent and simply leave. The one complaint you hear is the visible tip; the twenty-five who quietly drift off never show up in any conversation. The lifted shingle is easy to spot up close. The silent customers aren't. If only one in twenty-six ever tells you something's wrong, how would a business ever hear the other twenty-five?"
+  },
+  {
     "id": "n19b",
     "image": "",
     "batch": 2,
