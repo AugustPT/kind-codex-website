@@ -159,6 +159,230 @@ export const POST_MANIFEST: QueuePost[] = [
     "caption": "You want solar. You're ready to spend $40,000 today. The form wants your phone number first.\n\nAnd you hesitate — not because you're not serious, but because you know exactly what that field means: three calls tomorrow while you're at work.\n\nForm-analytics research across ~93 million sessions found a required phone field turns away roughly 37% of the people filling out a form. Mark it optional and completions nearly double. The people bouncing aren't tire-kickers; they're buyers who want to choose when the conversation starts.\n\nOne word — \"optional\" — might be the cheapest A/B test in home improvement. What's your form asking for before it's earned it?"
   },
   {
+    "id": "n22",
+    "image": "/posts/kindcodex-n22-roofing.png",
+    "batch": 3,
+    "label": "Roofing — 42 hours",
+    "caption": "A homeowner researching a new roof messages three companies on a Sunday. The average first reply, per HBR's audit of 2,241 businesses, takes 42 hours — and nearly a quarter never come. By Monday the job usually belongs to whoever answered first, not whoever was best. Curious how fast a fresh inquiry hears back from your world?"
+  },
+  {
+    "id": "n23",
+    "image": "/posts/kindcodex-n23-hvac.png",
+    "batch": 3,
+    "label": "HVAC — 100×",
+    "caption": "When it's 92 degrees and the AC quits, the customer isn't loyal — they're calling down the list. MIT's study of 15,000+ leads found that answering in 5 minutes vs 30 makes you roughly 100x likelier to actually reach them. Minute five to minute thirty isn't a gentle decline, it's a collapse. What's the slowest a hot lead waits on you?"
+  },
+  {
+    "id": "n24",
+    "image": "/posts/kindcodex-n24-med-spa.png",
+    "batch": 3,
+    "label": "Med Spa — 78%",
+    "caption": "Here's a pattern that keeps showing up: most people don't comparison-shop the way we imagine. A big share simply go with whoever answers first, before they've weighed price or read a single review. It means speed is a lever almost anyone can pull. Have you watched a 'first reply wins' play out, on either side?"
+  },
+  {
+    "id": "n25",
+    "image": "/posts/kindcodex-n25-remodeler.png",
+    "batch": 3,
+    "label": "Remodeler",
+    "caption": "A homeowner asks three remodelers for a kitchen estimate. The one who gets a real number in front of them first sets the anchor — every later bid gets judged against it, not on its own merits. Naming a number early isn't pushy; it's how the comparison gets framed. When a lead asks 'roughly what does this run,' how fast can you answer?"
+  },
+  {
+    "id": "n26",
+    "image": "/posts/kindcodex-n26-salon.png",
+    "batch": 3,
+    "label": "Salon — 62%",
+    "caption": "A quiet finding worth sitting with: when researchers called dozens of small businesses, well over half the calls never reached a human. And a caller who gets voicemail rarely calls back — they just dial the next name. The phone isn't the problem; the gap between ring and answer is. How many of your calls actually land on a person?"
+  },
+  {
+    "id": "n27",
+    "image": "/posts/kindcodex-n27-personal-injury-law.png",
+    "batch": 3,
+    "label": "Personal Injury Law — 80%",
+    "caption": "An injured person calling a firm after 6pm is not in a patient mood. Industry research consistently finds that around 80% of callers who hit voicemail hang up without leaving a message — and most never try again. They hire whoever picks up, usually within the hour. What happens to a call to your office at 7:15pm?"
+  },
+  {
+    "id": "n28",
+    "image": "/posts/kindcodex-n28-plumbing.png",
+    "batch": 3,
+    "label": "Plumbing — 41%",
+    "caption": "Demand doesn't keep business hours. CallRail's data found that roughly 41% of home-service bookings come in after the office has closed for the day — nights, weekends, mid-dinner. The work is arriving; the question is whether anything catches it. Ever tallied your own after-hours column?"
+  },
+  {
+    "id": "n29",
+    "image": "/posts/kindcodex-n29-restaurant.png",
+    "batch": 3,
+    "label": "Restaurant — 4.2 – 4.7",
+    "caption": "Counter-intuitive but real: Northwestern analyzed 122,000+ reviews and found buying peaks between 4.2 and 4.7 stars, not at a flawless 5.0. A perfect score quietly trips a 'too good to be true' alarm. So the odd critical review you'd love to erase may be doing the believing-work for all the good ones. Would you still want it gone?"
+  },
+  {
+    "id": "n30",
+    "image": "/posts/kindcodex-n30-e-commerce.png",
+    "batch": 3,
+    "label": "E-Commerce — 2×",
+    "caption": "Most owners fear the 1-star reviews. Shoppers seek them out — and the ones who do convert roughly twice as often as people who skip reviews entirely. Reading the worst-case and buying anyway is how trust actually forms. What story do your 1-star reviews tell a careful shopper?"
+  },
+  {
+    "id": "n31",
+    "image": "/posts/kindcodex-n31-gym.png",
+    "batch": 3,
+    "label": "Gym",
+    "caption": "Counter-intuitive but studied: gyms that start replying to their reviews see the rating tick UP, not down. Part of it is goodwill, and part is that people write more carefully when they know the owner actually reads. A reply turns a complaint into a conversation everyone else watches. How many of your reviews have a reply underneath them?"
+  },
+  {
+    "id": "n32",
+    "image": "/posts/kindcodex-n32-cosmetic-dentist.png",
+    "batch": 3,
+    "label": "Cosmetic Dentist — 44%",
+    "caption": "A wall of glowing reviews from two years ago reassures almost no one. BrightLocal found that 44% of consumers only give weight to reviews from the last month — freshness reads as 'still good.' The rating on the page can stay a 4.9 while its power quietly ages out. When was your newest review written?"
+  },
+  {
+    "id": "n33",
+    "image": "/posts/kindcodex-n33-contractor.png",
+    "batch": 3,
+    "label": "Contractor — +270%",
+    "caption": "The first handful of reviews does almost all the heavy lifting: going from 0 to 5 lifts purchase likelihood 270%, and even more on big-ticket work. After that, returns flatten fast. So the highest-leverage move usually isn't review #200 — it's helping a happy customer leave #3. How many does a new visitor actually see?"
+  },
+  {
+    "id": "n34",
+    "image": "/posts/kindcodex-n34-coffee-shop.png",
+    "batch": 3,
+    "label": "Coffee Shop — 76%",
+    "caption": "A 'near me' search isn't idle browsing — it's a person already in motion. Google's research found 76% of them visit a business within a day, and 28% buy. Which means being findable and legible in that moment matters more than almost anything on the website. What does your business look like to someone deciding in the car?"
+  },
+  {
+    "id": "n35",
+    "image": "/posts/kindcodex-n35-hair-salon.png",
+    "batch": 3,
+    "label": "Hair Salon",
+    "caption": "A stylist loses a regular and never learns why, because unhappy clients almost never say anything. Research puts it near 1 in 26 who actually complain; the other 25 just quietly book somewhere else. Which means a slow month is rarely random — it's silence you can't see. What would you change if you could hear the 25?"
+  },
+  {
+    "id": "n36",
+    "image": "/posts/kindcodex-n36-property-management.png",
+    "batch": 3,
+    "label": "Property Management",
+    "caption": "It sounds backwards, but a tenant whose burst pipe you fix fast and graciously can end up more loyal than one who never had a problem at all. The service-recovery paradox: a well-handled failure often builds more trust than a smooth ride nobody noticed. For a property manager, the 2am emergency is the real audition. What does yours sound like after hours?"
+  },
+  {
+    "id": "n37",
+    "image": "/posts/kindcodex-n37-marketing-agency.png",
+    "batch": 3,
+    "label": "Marketing Agency",
+    "caption": "Clients rarely doubt the result — they doubt the invisible middle. The labor illusion found people value a service more when they can see the work happening, even when that means a short wait. An agency that shows its process justifies the invoice before it's ever sent. Where does your best work happen out of the client's sight?"
+  },
+  {
+    "id": "n38",
+    "image": "/posts/kindcodex-n38-dental-practice.png",
+    "batch": 3,
+    "label": "Dental Practice — −18%",
+    "caption": "One of the cheapest fixes in any appointment business costs about forty cents: the pen. UK clinics found that when patients write their own appointment card instead of being handed one, no-shows fall around 18%. We protect what we author. What's the forty-cent fix in your booking flow?"
+  },
+  {
+    "id": "n39",
+    "image": "/posts/kindcodex-n39-solar.png",
+    "batch": 3,
+    "label": "Solar — 37%",
+    "caption": "Someone ready to spend $40,000 on solar still hesitates at one field: the required phone number. They know exactly what it means — three sales calls tomorrow. Across 93 million form sessions, a required phone field turned away about 37% of people; marking it optional nearly doubled completions. What's your form asking for before it's earned it?"
+  },
+  {
+    "id": "n40",
+    "image": "/posts/kindcodex-n40-law-firm.png",
+    "batch": 3,
+    "label": "Law Firm — 64%",
+    "caption": "Gating your prices used to feel like control. Now it reads as a red flag: most buyers quietly strike no-pricing options off the list before they ever make contact, and 64% say hidden pricing makes them less likely to buy. Transparency isn't giving away leverage — it's staying on the shortlist. What does your pricing page say, if anything?"
+  },
+  {
+    "id": "n41",
+    "image": "/posts/kindcodex-n41-boutique-studio.png",
+    "batch": 3,
+    "label": "Boutique Studio — +25%",
+    "caption": "Measured from a real bank's ledger, not a survey: referred customers spend up to 25% more over time and stick around roughly 18% longer. They arrive pre-trusted, so they behave differently from day one. The quiet growth engine isn't more ads — it's making the ask easy for the people who already love you. When did you last actually ask?"
+  },
+  {
+    "id": "n42",
+    "image": "/posts/kindcodex-n42-mortgage-broker.png",
+    "batch": 3,
+    "label": "Mortgage Broker — 100×",
+    "caption": "A rate shopper messages four brokers at 9pm. The one who replies while they're still on the couch becomes the reference point everyone else gets measured against. The MIT study puts the speed advantage near 100x for reaching a fresh lead in five minutes versus thirty. In a rate-driven business, being first is often worth more than being cheapest. How fast does a 9pm inquiry hear back?"
+  },
+  {
+    "id": "n43",
+    "image": "/posts/kindcodex-n43-roofing.png",
+    "batch": 3,
+    "label": "Roofing",
+    "caption": "A storm passes and a homeowner calls three roofers. The one who calls back first usually gets the job — not because they're the cheapest or the most decorated, but because they were there while the worry was still fresh. Present beats best more often than we'd like to admit. How fast does a storm-day call reach a human at your company?"
+  },
+  {
+    "id": "n44",
+    "image": "/posts/kindcodex-n44-accounting-firm.png",
+    "batch": 3,
+    "label": "Accounting Firm — 42 hours",
+    "caption": "During tax season a prospect fills out your contact form and then, hearing nothing, fills out two more. HBR's audit found the average business takes 42 hours to reply and 23% never do. The client didn't choose a better accountant — they chose a reachable one. What's the honest average in your firm right now?"
+  },
+  {
+    "id": "n45",
+    "image": "/posts/kindcodex-n45-veterinary-clinic.png",
+    "batch": 3,
+    "label": "Veterinary Clinic — 62%",
+    "caption": "A worried pet owner does not leave a voicemail and wait — they call the next clinic. Studies of small-business phones keep finding that well over half of calls never reach a human. For anything urgent or emotional, the practice that answers is the practice that gets the visit. What happens to a call to your front desk at lunch?"
+  },
+  {
+    "id": "n46",
+    "image": "/posts/kindcodex-n46-locksmith.png",
+    "batch": 3,
+    "label": "Locksmith — 41%",
+    "caption": "Locked out at 11pm, nobody scrolls reviews — they call whoever answers. Roughly 41% of home-service jobs come in after hours, exactly when the office is dark. The demand is real; it just needs something awake to catch it. How much of your week lands after you've clocked out?"
+  },
+  {
+    "id": "n47",
+    "image": "/posts/kindcodex-n47-med-spa.png",
+    "batch": 3,
+    "label": "Med Spa — 76%",
+    "caption": "Someone searches 'med spa near me' on a lunch break — that's a person deciding today, not someday. Three-quarters visit a business within 24 hours. Which makes the map listing, the photos, and the 'can I book right now' answer worth more than another brochure paragraph. Are you easy to choose in that 30-second window?"
+  },
+  {
+    "id": "n48",
+    "image": "/posts/kindcodex-n48-realtor.png",
+    "batch": 3,
+    "label": "Realtor — 44%",
+    "caption": "A page of five-star testimonials from 2023 quietly says 'was good' more than 'is good.' Nearly half of consumers only weigh reviews from the past month. In a business built on trust, a fresh review does more work than an old award. When's the last time a client's words landed on your page?"
+  },
+  {
+    "id": "n49",
+    "image": "/posts/kindcodex-n49-dental-practice.png",
+    "batch": 3,
+    "label": "Dental Practice — +25%",
+    "caption": "The best new patient a practice can get is one a current patient sent. From real ledger data, referred customers spend up to 25% more over their lifetime and leave far less often — they show up already trusting you. Yet most practices never make the ask a system. Who would refer you today if you simply asked?"
+  },
+  {
+    "id": "n50",
+    "image": "/posts/kindcodex-n50-med-spa.png",
+    "batch": 3,
+    "label": "Med Spa — 37%",
+    "caption": "A first-time client is curious about a treatment but not ready for a sales call — so the required phone field ends the visit. Across tens of millions of sessions, demanding a phone number cost about 37% of completions; making it optional nearly doubled them. People aren't avoiding you, they're avoiding the phone. What's the one field costing you bookings?"
+  },
+  {
+    "id": "n51",
+    "image": "/posts/kindcodex-n51-general-contractor.png",
+    "batch": 3,
+    "label": "General Contractor",
+    "caption": "A bare number on a quote invites the question 'why so much?' Show the walkthrough, the measurements, the plan — and the same number reads as earned. The labor illusion is why visible effort changes what a price feels like. Does your estimate show the thinking, or just the total?"
+  },
+  {
+    "id": "n52",
+    "image": "/posts/kindcodex-n52-solar.png",
+    "batch": 3,
+    "label": "Solar",
+    "caption": "A solar shopper collects three bids. Whichever number lands first quietly becomes the yardstick the other two get measured against — that's the anchor effect, and being first to a real number is often worth more than being lowest. When someone asks what a system runs, are you the first clear answer or the third callback?"
+  },
+  {
+    "id": "n53",
+    "image": "/posts/kindcodex-n53-hvac.png",
+    "batch": 3,
+    "label": "HVAC — 80%",
+    "caption": "A no-heat call at 6am doesn't wait politely. Around 80% of people who reach voicemail hang up and dial the next company, and most never call the first one back. For urgent trades, the whole game is being the one that picks up. What answers your phone before the office opens?"
+  },
+  {
     "id": "n19b",
     "image": "",
     "batch": 2,

@@ -62,6 +62,7 @@ export default function PostQueue({
   const [busy, setBusy] = useState<string>("");
   const [log, setLog] = useState<string>("");
   const [auto, setAuto] = useState(true);
+  const [zoom, setZoom] = useState<string | null>(null);
 
   // hydrate from localStorage
   useEffect(() => {
@@ -223,7 +224,7 @@ export default function PostQueue({
               {/* preview */}
               <div style={{ flex: "0 0 220px" }}>
                 {p.image ? (
-                  <img src={p.image} alt={p.label} style={{ width: 220, height: 275, borderRadius: 10, border: "1px solid #f0efea", display: "block", objectFit: "cover", background: "#faf9f5" }} />
+                  <img src={p.image} alt={p.label} onClick={() => setZoom(p.image)} title="Click to enlarge" style={{ width: 220, height: 275, borderRadius: 10, border: "1px solid #f0efea", display: "block", objectFit: "cover", background: "#faf9f5", cursor: "zoom-in" }} />
                 ) : (
                   <div style={{ width: 220, height: 275, borderRadius: 10, border: "1px dashed #d6d3d1", display: "flex", alignItems: "center", justifyContent: "center", color: "#a8a29e", fontSize: 12 }}>Text-only post</div>
                 )}
@@ -275,6 +276,13 @@ export default function PostQueue({
         })}
         {shown.length === 0 && <div style={{ padding: 24, border: "1px solid #e7e5e4", borderRadius: 12, background: "#fff", color: "#8a8a93" }}>Nothing in “{filter}”.</div>}
       </div>
+
+      {zoom && (
+        <div onClick={() => setZoom(null)} style={{ position: "fixed", inset: 0, background: "rgba(28,25,23,0.88)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1000, cursor: "zoom-out", padding: 24 }}>
+          <img src={zoom} alt="enlarged post" onClick={(e) => e.stopPropagation()} style={{ maxWidth: "94vw", maxHeight: "94vh", borderRadius: 12, boxShadow: "0 24px 70px rgba(0,0,0,0.6)", cursor: "default" }} />
+          <button onClick={() => setZoom(null)} style={{ position: "fixed", top: 20, right: 24, background: "#fff", border: 0, borderRadius: 999, width: 40, height: 40, fontSize: 20, cursor: "pointer", lineHeight: 1 }}>×</button>
+        </div>
+      )}
     </>
   );
 }
