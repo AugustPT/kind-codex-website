@@ -579,6 +579,76 @@ export const POST_MANIFEST: QueuePost[] = [
     "caption": "A big number on a med spa homepage is closer to noise than proof. Thousands of treatments performed reads as advertising, and the brain files advertising under 'they're selling.' Impressive, sure. Persuasive, no.\n\nWatch a first-timer hover over the booking button. She isn't asking how many people in general. She's asking something narrower — would this work for my skin, my age, my nerves. Scale can't answer that. Recognition can. One visible person who shares her situation and chose this anyway lands as a recommendation; a giant total lands as a billboard.\n\nHere's the uncomfortable part: the larger that number grows, the easier it becomes to bury the single face that would have closed the sale. Aggregate is a crowd. A crowd reassures no one standing at the edge of it, deciding alone."
   },
   {
+    "id": "n82",
+    "image": "/posts/kindcodex-n82-a-personal-injury-law-firm-with-fr.png",
+    "batch": 4,
+    "label": "Proof works where the fear is, not one page over",
+    "caption": "A personal-injury firm displayed everything correctly on its About page: bar admissions, the framed license, the guarantee. Almost no anxious visitor ever saw them there.\n\nHere's the plain mechanism. Risk-anxiety doesn't peak while someone reads a firm's history. It peaks in the half-second the cursor sits over 'Book a consultation' and the thought lands — what if I'm handing this to the wrong person. Trust signals decay with distance from that moment. A credential admired while browsing is forgotten by the time it's needed. The same credential placed beside the booking button reframes the risk exactly when it's felt.\n\nSo it isn't a matter of earning more proof. Most firms already have all they need. It's a matter of placement — the reassurance sitting in the room where the fear shows up, not in the next room."
+  },
+  {
+    "id": "n83",
+    "image": "/posts/kindcodex-n83-a-roofing-company-with-a-15-years-.png",
+    "batch": 4,
+    "label": "The badge said fifteen years. She wanted a name.",
+    "caption": "She reads the estimate again — five figures — then scrolls to the roofer's site. A shiny badge: 15 years in business. True, and it settles nothing in her chest. What she's actually turning over is colder than the company's age: if this roof leaks two winters from now, is anyone still here, or does the business quietly evaporate the day my check clears. She scans past the badge, looking for a face, a name, someone who'd pick up. She doesn't find one, and closes the tab.\n\nA bare number can't carry that weight. Longevity only reassures when it's embodied — a named, continuous human you can picture still answering the phone when something goes wrong. The badge says 'we lasted.' A person who's been there the whole time says 'someone stays responsible.' Most companies with real years behind them show only the digit, and hide the very thing that would have kept her on the page."
+  },
+  {
+    "id": "n84",
+    "image": "/posts/kindcodex-n84-a-custom-pool-builder.png",
+    "batch": 4,
+    "label": "I stopped scrolling at the muddy hole",
+    "caption": "I've seen a hundred finished pools and they all blur together — the blue water, the clean tile, the reveal. Pretty. Forgettable. My thumb keeps moving, because I already know how that story ends.\n\nThen one builder posts the wrong photo, or maybe the right one by accident: a raw brown crater in someone's yard, a tangle of pipe, nothing that looks remotely like a pool yet. And I stop. I actually stop. How does a hole THAT ugly turn into water THAT clean? Now I want the answer, and I'm reading the whole thread to get it.\n\nThat gap — between the mess and the result — is the thing that held me. The finished shot let me picture everything and gave me permission to leave. The half-built one I couldn't picture, so I stayed until it resolved. Lead with the reveal and the mystery's already spent. Lead with the dig, and I'm the one leaning in."
+  },
+  {
+    "id": "n85",
+    "image": "/posts/kindcodex-n85-a-family-dental-practice.png",
+    "batch": 4,
+    "label": "What is your second line actually paying off?",
+    "caption": "When someone stops scrolling on your opening line, what does the very next line hand them?\n\nA family dentist opens a post strong — the kind of line that pauses a thumb. Then line two arrives with something everyone already knew, dressed up as a secret. The reader feels it before they can name it: a small letdown, barely a flicker.\n\nThat flicker is the whole issue. A hook is a promise, and the line right after either pays it or quietly defaults. One default costs nothing. But the same reader, back next week, has learned something about this account — that its openings tend to over-promise. So the next hook gets a little less benefit of the doubt, and the one after that less again.\n\nEvery post looked like it 'did fine.' Nobody watches the floor lower under the whole account, one unpaid promise at a time."
+  },
+  {
+    "id": "n86",
+    "image": "/posts/kindcodex-n86-a-boutique-fitness-studio.png",
+    "batch": 4,
+    "label": "Everyone thinks the intro warms them up",
+    "caption": "Everyone assumes an intro warms the viewer up. Logo animation, a title card, a friendly 'hey everyone, welcome back' — the on-ramp before the good stuff. It feels courteous. It feels professional. Here's what actually happens at a boutique fitness studio that films a genuinely useful tip: by the time the tip arrives, most of the audience is already gone. Attention is never higher, or cheaper to lose, than at second zero. Those three seconds are the most valuable real estate the whole video owns, and they get spent on branding nobody has agreed to care about yet. View counts hide the damage completely — the reach was paid for at the top, then quietly torched. Only the retention graph ever tells the truth. The intro is a reward you hand the viewer after they've decided to stay, not a toll you charge before they've begun."
+  },
+  {
+    "id": "n87",
+    "image": "/posts/kindcodex-n87-a-med-spa.png",
+    "batch": 4,
+    "label": "Recognition is a counter that compounds",
+    "caption": "There's a name worth knowing for what happens after someone sees the same account a few times: recognition velocity — the speed at which a scrolling brain files a brand as 'oh, them again' and starts auto-stopping. It's a counter, and it compounds. But it only compounds if nothing resets it. Watch a med spa that chases every trend — new audio, new format, new look each week. Every post is current. Every post is also a stranger. Each costume change knocks the counter back to zero, so post two hundred works exactly as hard as post one to earn a glance. The fascinating part is how invisible the cost is: nothing looks broken, the feed looks fresh, and the account simply never accrues the thing that makes scrolling stop. A repeated color, frame, or format is what lets recognition velocity climb. Trends rent a stranger's attention for a day. A signature builds attention the account gets to keep."
+  },
+  {
+    "id": "n88",
+    "image": "/posts/kindcodex-n88-a-two-person-accounting-firm-durin.png",
+    "batch": 4,
+    "label": "A free review is worth less than it costs",
+    "caption": "Honestly, 'free' is the weakest word an accounting firm can put in front of an offer. A two-person shop, deep in tax season, used to close every discovery call the same way — 'happy to send over a free tax review.' It landed with a polite thanks and then silence. The review wasn't the problem. The framing was. A generic thing everyone in town also gives away reads as marketing, not a favor, and it asks the brain to feel grateful for something that cost the giver nothing and singled out no one. So nothing fires. Then they stopped sending the blank template. They pulled the prospect's own last return, marked three specific overpayments in the margin by hand, and attached a note: 'built this for you after our call.' Same hours. Completely different weight — personal, unexpected, obviously labored over, which are the exact three things reciprocity responds to. The template created a debt of zero. The folder created a quiet pull to reply."
+  },
+  {
+    "id": "n89",
+    "image": "/posts/kindcodex-n89-an-estate-planning-attorney-whose-.png",
+    "batch": 4,
+    "label": "Nobody clears a canyon in one jump",
+    "caption": "Picture a canyon with no bridge, just a sign that reads 'jump.' Almost everyone stops at the edge and turns around. Now drop a single flat stone a short step out over the drop, and something changes — most people step onto it. Once a foot is on that first stone, the next one feels reachable, and the crossing that looked impossible becomes a series of small, obvious moves. An estate-planning attorney had built the canyon version: a consult page that opened cold with the engagement letter and the full retainer. The only people who booked were the rare few already braced to leap. Everyone else felt the size of the jump and closed the tab. So a stone went in at the near edge — a short, plain-language 'is your will even outdated?' review, no retainer, easy to reach. Suddenly the crossing had a beginning, and the high-intent people who used to vanish had somewhere to put their foot. Offer only the leap, and the people who'd happily cross never get shown the first stone."
+  },
+  {
+    "id": "n90",
+    "image": "/posts/kindcodex-n90-a-custom-pool-builder-whose-propos.png",
+    "batch": 4,
+    "label": "Someday quietly bills you every summer",
+    "caption": "A custom-pool builder wrote genuinely lovely proposals. Each one opened with the dream: the whole family out back on a hot afternoon, a private resort steps from the kitchen. Warm, qualified buyers read it, smiled, and said the same thing with impressive consistency — 'love it, maybe next year.' The proposal, you see, was selling a gain, and a gain is the easiest thing in the world to schedule for later. The mind, though, treats a loss as heavier than the matching gain, and it genuinely dislikes watching something drift out of reach. So one line got rewritten. Not 'here's what you'll get,' but a mild observation: 'every summer you wait is one your kids are exactly the age they are now — and that one doesn't come back.' The pool didn't change. Which option looked expensive did. 'Doing nothing' quietly stopped being the free, safe choice and started charging rent — in the precise summers nobody gets to reorder later. The comfortable status quo, it turns out, was never actually free."
+  },
+  {
+    "id": "n91",
+    "image": "/posts/kindcodex-n91-an-interior-designer-sending-our-r.png",
+    "batch": 4,
+    "label": "One word on the title changed the reply",
+    "caption": "One word in the document title. That was the whole edit. An interior designer sent beautiful proposals — mood boards, sourcing, the works — each one titled 'Our Recommended Package.' Clients studied them, admired them, and replied 'let me think about it.' Saying no cost them nothing; the title itself said this was the designer's offer, hers to take back. So she stopped titling them that way. She built each plan visibly out of the client's own answers — their kids, their morning light, the heirloom rug they wouldn't part with — and named the file for them: 'The Morales Family Living Plan.' Same rooms. Same price. Now the thing on the table had been assembled from their words and stamped with their name. That's the endowment effect switching on: people value what feels like theirs, and letting it go registers as a loss. Rejecting a pitch is easy. Surrendering something that already feels owned is not."
+  },
+  {
     "id": "n19b",
     "image": "",
     "batch": 2,
