@@ -115,9 +115,12 @@ export async function postImage(
   const asset: string = regData?.value?.asset;
   if (!uploadUrl || !asset) return { ok: false, error: "register: no uploadUrl/asset returned" };
 
-  // 2) upload the PNG bytes
-  const bytes = Buffer.from(String(pngBase64).replace(/^data:image\/\w+;base64,/, ""), "base64");
-  const up = await fetch(uploadUrl, { method: "PUT", headers: { ...auth, "Content-Type": "image/png" }, body: bytes });
+  // 2) upload the image bytes — detect the mime from the data URL so animated GIFs
+  //    (and JPGs) upload with the right Content-Type instead of being mislabeled PNG.
+  const mimeMatch = String(pngBase64).match(/^data:(image\/[\w.+-]+);base64,/i);
+  const mime = mimeMatch ? mimeMatch[1] : "image/png";
+  const bytes = Buffer.from(String(pngBase64).replace(/^data:image\/[\w.+-]+;base64,/i, ""), "base64");
+  const up = await fetch(uploadUrl, { method: "PUT", headers: { ...auth, "Content-Type": mime }, body: bytes });
   if (!up.ok && up.status !== 201) return { ok: false, error: `upload ${up.status}: ${(await up.text().catch(() => "")).slice(0, 150)}` };
 
   // 3) create the post referencing the uploaded image
