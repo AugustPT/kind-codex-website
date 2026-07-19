@@ -102,6 +102,13 @@ export async function loadLiToken(): Promise<{ token: string; urn: string } | nu
   return { token, urn };
 }
 
+// When the token was last synced (ms epoch), for expiry monitoring. Null if never.
+export async function loadLiSavedAt(): Promise<number | null> {
+  const a = await readSystem();
+  const ts = a?.LI_SAVED ? Date.parse(String(a.LI_SAVED)) : NaN;
+  return isNaN(ts) ? null : ts;
+}
+
 // --- daily-poster cron state (last posted HST date + next schedule index) ---
 export async function loadCronState(): Promise<{ lastPost: string; nextIdx: number }> {
   const a = await readSystem();

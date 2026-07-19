@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { postImage } from "@/lib/linkedin";
+import { postImage, postText } from "@/lib/linkedin";
 import { loadLiToken, loadCronState, saveCronState } from "@/lib/liStore";
 import { CONTENT_SCHEDULE } from "@/data/contentSchedule";
 
@@ -60,20 +60,26 @@ export async function GET(req: Request) {
 
   const item = CONTENT_SCHEDULE[state.nextIdx];
   const base = process.env.SITE_URL || "https://kindcodex.com";
-  let dataUrl: string;
-  try {
-    dataUrl = await fetchImageDataUrl(item.gif.startsWith("http") ? item.gif : base + item.gif);
-  } catch (e) {
-    return NextResponse.json({ error: (e as Error).message }, { status: 502 });
-  }
 
-  const result = await postImage(item.caption, dataUrl, creds.token, creds.urn);
+  // A schedule entry without a gif is a text-only post (personal-brand text pieces).
+  let result: { ok: boolean; id?: string; error?: string };
+  if (item.gif) {
+    let dataUrl: string;
+    try {
+      dataUrl = await fetchImageDataUrl(item.gif.startsWith("http") ? item.gif : base + item.gif);
+    } catch (e) {
+      return NextResponse.json({ error: (e as Error).message }, { status: 502 });
+    }
+    result = await postImage(item.caption, dataUrl, creds.token, creds.urn);
+  } else {
+    result = await postText(item.caption, creds.token, creds.urn);
+  }
   if (!result.ok) return NextResponse.json({ error: result.error }, { status: 502 });
 
   await saveCronState(today, state.nextIdx + 1);
   return NextResponse.json({
     ok: true,
-    posted: item.gif,
+    posted: item.gif || `text:${item.caption.slice(0, 60)}`,
     id: result.id,
     nextIdx: state.nextIdx + 1,
     remaining: CONTENT_SCHEDULE.length - (state.nextIdx + 1),

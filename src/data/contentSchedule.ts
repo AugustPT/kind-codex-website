@@ -4,7 +4,7 @@
 // Each gif path is served from the live site's /public/anim.
 
 export interface ScheduledPost {
-  gif: string; // path under the site root
+  gif?: string; // path under the site root; omit for a text-only post
   caption: string;
 }
 
