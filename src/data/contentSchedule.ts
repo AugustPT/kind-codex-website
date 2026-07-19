@@ -165,4 +165,36 @@ She booked the barn that afternoon.
 
 Half the people I tell this story to say genius. The other half say creepy. The bride says it's the best email she's ever gotten.`,
   },
+  {
+    gif: "/anim/kindcodex-pilot-1-ikea-effect.gif",
+    caption: `There's a name for it: the IKEA Effect. Psychologists found people place a higher value on things they helped make — even wobbly flat-pack shelves — than on nicer things they bought finished.
+
+The sweat is the attachment. A little of your own labor quietly turns 'a thing I own' into 'a thing that's mine.'
+
+Worth remembering for anyone who sells anything: the small effort you ask of a customer isn't always friction to strip away. Handled right, it's the glue that makes them stay — the reason they defend the choice they made instead of quietly shopping around.
+
+Not everything valuable should be effortless. Sometimes the effort is the value.`,
+  },
+  {
+    gif: "/anim/kindcodex-pilot-2-memorable.gif",
+    caption: `Everyone wants to be memorable. But memorable is a coin flip — maybe you cross their mind when they need you, maybe you don't.
+
+The businesses that never lose customers aren't chasing memorable. They're building un-leaveable: the quiet pile-up of history, convenience, and habit that makes starting over somewhere else feel like a chore nobody wants to do.
+
+Memorable is marketing — you rent attention and hope it sticks. Un-leaveable is architecture — you build something a customer would have to actively dismantle to walk away from.
+
+One of them you chase every quarter. The other one compounds while you sleep.`,
+  },
+  {
+    gif: "/anim/kindcodex-pilot-3-nine-word-text.gif",
+    caption: `Every business is sitting on a graveyard of 'not right now' leads — people who were interested once and never got a reason to come back. Most never get touched again.
+
+Here's a message that restarts the conversation with zero pitch:
+
+'Hi [name] — are you still thinking about [the thing]?'
+
+That's the whole play. No link. No paragraph. No 'just following up!' It works because it reads exactly like a text a real person would send, and it hands the next move gently back to them — a yes-or-no they can answer in one thumb tap.
+
+Pick ten cold leads. Send it this week, one at a time, by hand. Some of the deals you wrote off already said yes once.`,
+  },
 ];
