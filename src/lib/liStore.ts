@@ -102,10 +102,13 @@ export async function loadLiToken(): Promise<{ token: string; urn: string } | nu
   return { token, urn };
 }
 
-// When the token was last synced (ms epoch), for expiry monitoring. Null if never.
+// When the token was MINTED by LinkedIn (ms epoch), for expiry monitoring.
+// Prefers LI_MINTED (set when the mint date is known); falls back to LI_SAVED
+// (the sync date — an upper bound that can overestimate remaining life).
 export async function loadLiSavedAt(): Promise<number | null> {
   const a = await readSystem();
-  const ts = a?.LI_SAVED ? Date.parse(String(a.LI_SAVED)) : NaN;
+  const raw = a?.LI_MINTED || a?.LI_SAVED;
+  const ts = raw ? Date.parse(String(raw)) : NaN;
   return isNaN(ts) ? null : ts;
 }
 
